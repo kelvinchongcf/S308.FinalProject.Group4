@@ -5,8 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="PricingManagement" Height="300" Width="300">
+        Title="PricingManagement" Height="291" Width="500">
     <Grid x:Name="wdwPricingMgmt" Background="#FF640C97">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblMembershipType" Content="Select Membership Type" HorizontalAlignment="Left" Height="28" Margin="10,85,0,0" VerticalAlignment="Top" Width="190" FontFamily="Courier New" FontSize="13.333" Foreground="White"/>
+        <ComboBox x:Name="cbxMembershipType" HorizontalAlignment="Left" Margin="205,85,0,0" VerticalAlignment="Top" Width="249" FontFamily="Courier New" FontSize="16" Grid.ColumnSpan="2" Height="24">
+            <ComboBoxItem x:Name="cbiIndividual1" Content="Individual 1 Month" HorizontalAlignment="Left" Width="247"/>
+            <ComboBoxItem x:Name="cbiIndividual12" Content="Individual 12 Month" HorizontalAlignment="Left" Width="247"/>
+            <ComboBoxItem x:Name="cbiTwoPerson1" Content="Two Person 1 Month" HorizontalAlignment="Left" Width="247"/>
+            <ComboBoxItem x:Name="cbiTwoPerson12" Content="Two Person 12 Month" HorizontalAlignment="Left" Width="247"/>
+            <ComboBoxItem x:Name="cbiFamily1" Content="Family 1 Month" HorizontalAlignment="Left" Width="247"/>
+            <ComboBoxItem x:Name="cbiFamily2" Content="Family 12 Month" HorizontalAlignment="Left" Width="247"/>
+        </ComboBox>
+        <Label x:Name="lblCurrent" Content="Current" HorizontalAlignment="Left" Height="28" Margin="0,121,0,0" VerticalAlignment="Top" Width="246" FontFamily="Courier New" FontSize="13.333" Foreground="White" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblMakeChanges" Content="Make Changes" HorizontalAlignment="Left" Height="28" Margin="0,121,0,0" VerticalAlignment="Top" Width="246" FontFamily="Courier New" FontSize="13.333" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="1"/>
+        <Label x:Name="lblOldPrice" Content="Price:" HorizontalAlignment="Left" Height="28" Margin="10,150,0,0" VerticalAlignment="Top" Width="55" FontFamily="Courier New" FontSize="13.333" Foreground="White"/>
+        <Label x:Name="lblNewPrice" Content="New Price: $" HorizontalAlignment="Left" Height="28" Margin="10,150,0,0" VerticalAlignment="Top" Width="110" FontFamily="Courier New" FontSize="13.333" Foreground="White" Grid.Column="1"/>
+        <Label x:Name="lblOldAvailability" Content="Availability:" HorizontalAlignment="Left" Height="28" Margin="10,180,0,0" VerticalAlignment="Top" Width="110" FontFamily="Courier New" FontSize="13.333" Foreground="White"/>
+        <Label x:Name="lblNewAvailability" Content="Availability:" HorizontalAlignment="Left" Height="28" Margin="10,180,0,0" VerticalAlignment="Top" Width="110" FontFamily="Courier New" FontSize="13.333" Foreground="White" Grid.Column="1"/>
+        <Image x:Name="imgNamePricingManagement" HorizontalAlignment="Left" Height="24" Margin="0,51,0,0" VerticalAlignment="Top" Width="106" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
+        <Image x:Name="imgLogoPricingManagement" HorizontalAlignment="Left" Height="40" Margin="10,20,0,0" VerticalAlignment="Top" Width="84" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
+        <Label x:Name="lblPricingManagementSystem" Content="Pricing Management System" HorizontalAlignment="Left" Margin="120,28,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="47" Width="333" FontFamily="Courier New" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblOldPriceValue" Content="$9.99" HorizontalAlignment="Left" Height="28" Margin="65,150,0,0" VerticalAlignment="Top" Width="110" FontFamily="Courier New" FontSize="13.333" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblOldAvailabilityCheck" Content="YES" HorizontalAlignment="Left" Height="28" Margin="120,180,0,0" VerticalAlignment="Top" Width="110" FontFamily="Courier New" FontSize="13.333" Foreground="White" FontWeight="Bold"/>
+        <TextBox x:Name="txtNewPriceValue" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="118,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" FontFamily="Courier New" FontSize="16" FontWeight="Bold" Text="12.99"/>
+        <RadioButton x:Name="rdbYesAvailability" Content="Yes" Grid.Column="1" HorizontalAlignment="Left" Margin="132,184,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="16" Foreground="White" Background="#FFFDFDFD"/>
+        <RadioButton x:Name="rdbNoAvailability" Content="No" Grid.Column="1" HorizontalAlignment="Left" Margin="190,184,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="16" Foreground="White"/>
+        <Button x:Name="btnSaveChanges" Content="Save Changes" Grid.Column="1" HorizontalAlignment="Left" Margin="50,213,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black"/>
+        <Button x:Name="btnHomeFromPM" Content="Dashboard" HorizontalAlignment="Left" Margin="53,213,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black"/>
+
     </Grid>
 </Window>

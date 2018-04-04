@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="MainMenu" Height="300" Width="300">
     <Grid x:Name="wdwMainMenu" Background="#FF640C97">
-        <Button x:Name="btnMembershipSales" Content="Membership Sales" HorizontalAlignment="Left" Margin="75,121,0,0" VerticalAlignment="Top" Width="144"/>
-        <Button x:Name="btnPricingMgmt" Content="Pricing Management" HorizontalAlignment="Left" Margin="75,146,0,0" VerticalAlignment="Top" Width="144"/>
-        <Button x:Name="btnMemberInfo" Content="Membership Information" HorizontalAlignment="Left" Margin="75,171,0,0" VerticalAlignment="Top" Width="144"/>
-        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="216,232,0,0" VerticalAlignment="Top" Width="66"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="51" Margin="53,65,0,0" VerticalAlignment="Top" Width="184" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="52" Margin="93,21,0,0" VerticalAlignment="Top" Width="100" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="216,232,0,0" VerticalAlignment="Top" Width="66" FontFamily="Courier New" FontSize="14.667"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="58" Margin="40,65,0,0" VerticalAlignment="Top" Width="207" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="63" Margin="73,12,0,0" VerticalAlignment="Top" Width="115" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
+        <Button x:Name="btnMembershipSalesWindow" Content="Membership Sales" HorizontalAlignment="Left" Height="25" Margin="52,130,0,0" VerticalAlignment="Top" Width="195" FontFamily="Courier New" FontSize="16" Click="btnMembershipSalesWindow_Click"/>
+        <Button x:Name="btnPricingManagementWindow" Content="Pricing Management" HorizontalAlignment="Left" Height="25" Margin="52,163,0,0" VerticalAlignment="Top" Width="195" FontFamily="Courier New" FontSize="16" Click="btnPricingManagementWindow_Click"/>
+        <Button x:Name="btnMembershipInfoWindow" Content="Membership Info" HorizontalAlignment="Left" Height="25" Margin="52,195,0,0" VerticalAlignment="Top" Width="195" FontFamily="Courier New" FontSize="16" Click="btnMembershipInfoWindow_Click"/>
     </Grid>
 </Window>

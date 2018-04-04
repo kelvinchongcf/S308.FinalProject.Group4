@@ -13,9 +13,9 @@
         <TextBox x:Name="txtLastNameSearch" HorizontalAlignment="Left" Height="23" Margin="166,115,0,0" TextWrapping="Wrap" Text="Martin" VerticalAlignment="Top" Width="116"/>
         <TextBox x:Name="txtPhoneSearch" HorizontalAlignment="Left" Height="23" Margin="166,146,0,0" TextWrapping="Wrap" Text="4448571345" VerticalAlignment="Top" Width="116"/>
         <TextBox x:Name="txtEmailSearch" HorizontalAlignment="Left" Height="23" Margin="166,177,0,0" TextWrapping="Wrap" Text="bmartin@iu.edu" VerticalAlignment="Top" Width="116"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="207,218,0,0" VerticalAlignment="Top" Width="75" Click="btnSearch_Click"/>
         <Image x:Name="imgPowerFitness" HorizontalAlignment="Left" Height="51" Margin="56,10,0,0" VerticalAlignment="Top" Width="184" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
         <TextBox x:Name="txtOutput" HorizontalAlignment="Left" Height="292" Margin="319,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" FontFamily="Consolas"/>
+        <Button x:Name="btnSearchMemberInfo" Content="Search" HorizontalAlignment="Left" Height="31" Margin="90,232,0,0" VerticalAlignment="Top" Width="118" Click="button_Click" FontFamily="Courier New" FontSize="16"/>
 
     </Grid>
 </Window>
