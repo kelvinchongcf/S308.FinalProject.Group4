@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
         Title="MainMenu" Height="300" Width="300">
-    <Grid>
-        
+    <Grid x:Name="wdwMainMenu" Background="#FF640C97">
+        <Button x:Name="btnMembershipSales" Content="Membership Sales" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="144"/>
+        <Button x:Name="btnPricingMgmt" Content="Pricing Management" HorizontalAlignment="Left" Margin="10,116,0,0" VerticalAlignment="Top" Width="144"/>
+        <Button x:Name="btnMemberInfo" Content="Membership Information" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="144"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="207,173,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
         Title="MemberInformation" Height="300" Width="300">
-    <Grid>
+    <Grid x:Name="wdwMemberInfo" Background="#FF640C97">
         
     </Grid>
 </Window>
