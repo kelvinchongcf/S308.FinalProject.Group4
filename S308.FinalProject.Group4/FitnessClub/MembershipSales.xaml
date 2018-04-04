@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="MembershipSales" Height="300" Width="300">
     <Grid x:Name="wdwMembershipSales" Background="#FF640C97">
-        
+        <GroupBox x:Name="groupBox" Header="Quote Preview" HorizontalAlignment="Left" Margin="6,163,0,0" VerticalAlignment="Top" Height="89" Width="203" FontSize="9.333"/>
+        <Label x:Name="lblMembershipType" Content="Membership Type" HorizontalAlignment="Left" Margin="0,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="9.333"/>
+        <ComboBox x:Name="cbbMembershipType" HorizontalAlignment="Left" Margin="89,41,0,0" VerticalAlignment="Top" Width="120" FontSize="9.333" RenderTransformOrigin="0.486,-0.13"/>
+        <DatePicker x:Name="dpiStartDate" HorizontalAlignment="Left" Margin="56,64,0,0" VerticalAlignment="Top" FontSize="9.333"/>
+        <Label x:Name="lblStartDate" Content="Start Date" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="9.333"/>
+        <DatePicker x:Name="dpiEndDate" HorizontalAlignment="Left" Margin="205,65,0,0" VerticalAlignment="Top" FontSize="9.333"/>
+        <Label x:Name="lblEndDate" Content="End Date" HorizontalAlignment="Left" Margin="149,66,0,0" VerticalAlignment="Top" FontSize="9.333"/>
+        <Label x:Name="lblMembershipCostPerMonth" Content="Membership Cost Per Month" HorizontalAlignment="Left" Margin="8,177,0,0" VerticalAlignment="Top" FontSize="9.333"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="cboPersonalTraining" Content="Personal Training Plan - $5.00 per month" FontSize="9.333" Width="190" Margin="13,114,0,0" Height="12"/>
+        <CheckBox x:Name="cboLocker" Content="Locker Rental - $1.00 per month" HorizontalAlignment="Left" Margin="13,127,0,0" VerticalAlignment="Top" FontSize="9.333" Padding="4,-1,0,0" Height="12" Width="169"/>
+        <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="44" Margin="1,0,0,0" VerticalAlignment="Top" Width="83" Source="Images/PowerFitnessLogo.png"/>
+        <Label x:Name="lblAdditionalCosts" Content="Additional Cost Per Month" HorizontalAlignment="Left" Margin="8,199,0,0" VerticalAlignment="Top" FontSize="9.333"/>
+        <Label x:Name="lblTotalCost" Content="Total Cost" HorizontalAlignment="Left" Margin="8,221,0,0" VerticalAlignment="Top" FontSize="9.333"/>
+        <Label x:Name="lblCalcCostPerMonth" Content="$50.00" HorizontalAlignment="Left" Margin="142,178,0,0" VerticalAlignment="Top" FontSize="8" Width="72"/>
+        <Label x:Name="lblCalcAddCost" Content="$6.00" HorizontalAlignment="Left" Margin="142,200,0,0" VerticalAlignment="Top" FontSize="8"/>
+        <Label x:Name="lblCalcTotalCost" Content="$112.00" HorizontalAlignment="Left" Margin="142,221,0,0" VerticalAlignment="Top" FontSize="8"/>
+        <Button x:Name="btnQuote" Content="Quote Price" HorizontalAlignment="Left" Margin="214,131,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnConfirm" Content="Confirm" HorizontalAlignment="Left" Margin="214,232,0,0" VerticalAlignment="Top" Width="75"/>
+        <GroupBox x:Name="groupBox1" Header="Additional Features" HorizontalAlignment="Left" Margin="4,99,0,0" VerticalAlignment="Top" Height="52" Width="199" FontSize="9.333"/>
+
     </Grid>
 </Window>
