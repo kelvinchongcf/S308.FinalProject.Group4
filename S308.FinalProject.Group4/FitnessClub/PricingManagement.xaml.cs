@@ -15,12 +15,11 @@ using System.Windows.Shapes;
 namespace FitnessClub
 {
     /// <summary>
-    /// Interaction logic for MainMenu.xaml
+    /// Interaction logic for PricingManagement.xaml
     /// </summary>
-    public partial class MainMenu : Window
+    public partial class PricingManagement : Window
     {
-        public MainMenu()
-            //Kelvin Chong
+        public PricingManagement()
         {
             InitializeComponent();
         }
