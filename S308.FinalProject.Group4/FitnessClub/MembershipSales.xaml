@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="MembershipSales" Height="450" Width="502.521">
+        Title="MembershipSales" Height="450" Width="1010.521">
     <Grid x:Name="wdwMembershipSales" Background="#FF640C97">
         <GroupBox x:Name="gboQuotePreview" Header="Quote Preview" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Height="103" Width="341" FontSize="16" FontFamily="Courier New" Foreground="White"/>
         <Label x:Name="lblMembershipType" Content="Membership Type" HorizontalAlignment="Left" Margin="19,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
@@ -24,11 +24,31 @@
         <Label x:Name="lblCalcTotalCost" Content="$112.00" HorizontalAlignment="Left" Margin="269,341,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Button x:Name="btnQuote" Content="Quote Price" HorizontalAlignment="Left" Margin="360,307,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23"/>
         <Button x:Name="btnConfirm" Content="Confirm" HorizontalAlignment="Left" Margin="360,341,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23"/>
-        <GroupBox x:Name="gboAdditionalFeatures" Header="Additional Features" HorizontalAlignment="Right" Margin="0,172,10,0" VerticalAlignment="Top" Height="102" Width="475" FontSize="16" FontFamily="Courier New" Foreground="White"/>
+        <GroupBox x:Name="gboAdditionalFeatures" Header="Additional Features" HorizontalAlignment="Right" Margin="0,177,518,0" VerticalAlignment="Top" Height="102" Width="475" FontSize="16" FontFamily="Courier New" Foreground="White"/>
         <Image x:Name="imgNameMembershipSales" HorizontalAlignment="Left" Height="24" Margin="0,41,0,0" VerticalAlignment="Top" Width="106" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
         <Image x:Name="imgMembershipSales" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="84" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
         <Label x:Name="lblMembershipSalesSystem" Content="Membership Sales System" HorizontalAlignment="Left" Margin="118,31,0,0" VerticalAlignment="Top" Height="47" Width="333" FontFamily="Courier New" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
         <Button x:Name="btnHomeFromPM" Content="Dashboard" HorizontalAlignment="Left" Margin="364,4,0,0" VerticalAlignment="Top" Width="125" FontFamily="Courier New" FontSize="16" Foreground="Black" Height="24"/>
+        <Label x:Name="lblFirstName" Content="First Name: " HorizontalAlignment="Left" Margin="513,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblLastName" Content="Last Name: " HorizontalAlignment="Left" Margin="513,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblCreditCardType" Content="Credit Card Type: " HorizontalAlignment="Left" Margin="513,131,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblCreditCardNumber" Content="Credit Card Number: " HorizontalAlignment="Left" Margin="513,159,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblPhone" Content="Phone:" HorizontalAlignment="Left" Margin="513,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblAge" Content="Age:" HorizontalAlignment="Left" Margin="513,269,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblGender" Content="Gender:" HorizontalAlignment="Left" Margin="513,241,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblEmail" Content="Email: " HorizontalAlignment="Left" Margin="513,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblPersonalGoal" Content="Personal Fitness Goal: " HorizontalAlignment="Left" Margin="513,323,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <Label x:Name="lblWeight" Content="Weight: " HorizontalAlignment="Left" Margin="513,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
+        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="770,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="770,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="txtCreditCardNumber" HorizontalAlignment="Left" Height="23" Margin="770,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="770,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="770,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="23" Margin="770,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Height="23" Margin="770,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
+        <ComboBox x:Name="cbbGender" HorizontalAlignment="Left" Margin="770,241,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New"/>
+        <ComboBox x:Name="cbbPersonalGoal" HorizontalAlignment="Left" Margin="770,323,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New"/>
+        <ComboBox x:Name="cbbCreditCardType" HorizontalAlignment="Left" Margin="770,133,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New"/>
 
     </Grid>
 </Window>
