@@ -34,8 +34,8 @@
         <TextBox x:Name="txtNewPriceValue" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="118,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" FontFamily="Courier New" FontSize="16" FontWeight="Bold" Text="12.99"/>
         <RadioButton x:Name="rdbYesAvailability" Content="Yes" Grid.Column="1" HorizontalAlignment="Left" Margin="132,184,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="16" Foreground="White" Background="#FFFDFDFD"/>
         <RadioButton x:Name="rdbNoAvailability" Content="No" Grid.Column="1" HorizontalAlignment="Left" Margin="190,184,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="16" Foreground="White"/>
-        <Button x:Name="btnSaveChanges" Content="Save Changes" Grid.Column="1" HorizontalAlignment="Left" Margin="50,213,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black"/>
-        <Button x:Name="btnHomeFromPM" Content="Dashboard" HorizontalAlignment="Left" Margin="53,213,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black"/>
+        <Button x:Name="btnSaveChanges" Content="Save Changes" HorizontalAlignment="Left" Margin="178,213,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnHomeFromPM" Content="Dashboard" HorizontalAlignment="Left" Margin="103,6,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black" Grid.Column="1"/>
 
     </Grid>
 </Window>

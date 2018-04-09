@@ -20,7 +20,7 @@ namespace FitnessClub
     public partial class MainMenu : Window
     {
         public MainMenu()
-            //Kelvin Chong
+            //Kelvin Chong, Willy Galvin, Sanyam Gupta
         {
             InitializeComponent();
         }
