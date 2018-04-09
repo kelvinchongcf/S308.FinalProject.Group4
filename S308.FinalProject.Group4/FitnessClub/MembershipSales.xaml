@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
         Title="MembershipSales" Height="300" Width="300">
-    <Grid x:Name="wdwMembershipSales" Background="#FF640C97">
+    <Grid x:Name="wdwMembershipSales" Background="#FF640C97" Margin="1,0,-1,0">
         <GroupBox x:Name="groupBox" Header="Quote Preview" HorizontalAlignment="Left" Margin="6,163,0,0" VerticalAlignment="Top" Height="89" Width="203" FontSize="9.333"/>
         <Label x:Name="lblMembershipType" Content="Membership Type" HorizontalAlignment="Left" Margin="0,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="9.333"/>
         <ComboBox x:Name="cbbMembershipType" HorizontalAlignment="Left" Margin="89,41,0,0" VerticalAlignment="Top" Width="120" FontSize="9.333" RenderTransformOrigin="0.486,-0.13"/>
