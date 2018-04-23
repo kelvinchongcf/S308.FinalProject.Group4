@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace FitnessClub
 {
@@ -20,12 +21,20 @@ namespace FitnessClub
     /// </summary>
     public partial class MembershipSales : Window
     {
+        List<Pricing> pricingList;
         public MembershipSales()
         {
             InitializeComponent();
-
+            pricingList = new List<Pricing>();
+            ImportPricingData();
 
         }
+        private void ImportPricingData()
+        {
+            var json = File.ReadAllText(@"..\..\..\Data\MembershipPricing.json");
+           // var dict = 
+        }
+
 
         private void btnHomeFromPM_Click(object sender, RoutedEventArgs e)
         {//When clicked, navigate to destination page, closing the current page
