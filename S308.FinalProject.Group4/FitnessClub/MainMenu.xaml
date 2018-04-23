@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainMenu" Height="300" Width="300">
     <Grid x:Name="wdwMainMenu" Background="#FF640C97">
-        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="216,232,0,0" VerticalAlignment="Top" Width="66" FontFamily="Courier New" FontSize="14.667"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Margin="216,232,0,0" VerticalAlignment="Top" Width="66" FontFamily="Courier New" FontSize="14.667" Click="btnExit_Click"/>
         <Image x:Name="imgName" HorizontalAlignment="Left" Height="58" Margin="40,65,0,0" VerticalAlignment="Top" Width="207" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
         <Image x:Name="imgLogo" HorizontalAlignment="Left" Height="63" Margin="73,12,0,0" VerticalAlignment="Top" Width="134" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
         <Button x:Name="btnMembershipSalesWindow" Content="Membership Sales" HorizontalAlignment="Left" Height="25" Margin="52,130,0,0" VerticalAlignment="Top" Width="195" FontFamily="Courier New" FontSize="16" Click="btnMembershipSalesWindow_Click"/>

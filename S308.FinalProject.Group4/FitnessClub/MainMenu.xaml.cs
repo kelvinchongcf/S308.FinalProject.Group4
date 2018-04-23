@@ -43,5 +43,10 @@ namespace FitnessClub
             new MemberInformation().Show();
             this.Close();
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {//Close the progam when clicked
+            this.Close();
+        }
     }
 }

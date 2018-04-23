@@ -17,8 +17,8 @@
         <Button x:Name="btnSearchMemberInfo" Content="Search" HorizontalAlignment="Left" Height="22" Margin="105,214,0,0" VerticalAlignment="Top" Width="133" Click="button_Click" FontFamily="Courier New" FontSize="16"/>
         <Image x:Name="imgNameMembersInfo" HorizontalAlignment="Left" Height="33" Margin="12,57,0,0" VerticalAlignment="Top" Width="130" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
         <Image x:Name="imgLogoMembersInfo" HorizontalAlignment="Left" Height="56" Margin="25,13,0,0" VerticalAlignment="Top" Width="117" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
-        <Label x:Name="lblMembersInformationSystem" Content="Members Information System" HorizontalAlignment="Left" Margin="186,22,0,0" VerticalAlignment="Top" Height="47" Width="367" FontFamily="Courier New" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
-        <Button x:Name="btnHomeFromPM" Content="Dashboard" HorizontalAlignment="Left" Margin="549,0,0,440" VerticalAlignment="Bottom" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black" Click="btnHomeFromPM_Click"/>
+        <Label x:Name="lblMembersInformationSystem" Content="Members Information System" HorizontalAlignment="Left" Margin="186,26,0,0" VerticalAlignment="Top" Height="47" Width="367" FontFamily="Courier New" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
+        <Button x:Name="btnHomeFromPM" Content="Dashboard" HorizontalAlignment="Left" Margin="549,0,0,429" VerticalAlignment="Bottom" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black" Click="btnHomeFromPM_Click"/>
 
     </Grid>
 </Window>
