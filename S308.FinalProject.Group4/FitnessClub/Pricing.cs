@@ -10,5 +10,6 @@ namespace FitnessClub
     {
         public string MembershipType { get; set; }
         public double Price { get; set; }
+        public bool Availability { get; set; }
     }
 }
