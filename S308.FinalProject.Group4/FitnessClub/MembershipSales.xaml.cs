@@ -23,5 +23,11 @@ namespace FitnessClub
         {
             InitializeComponent();
         }
+
+        private void btnHomeFromPM_Click(object sender, RoutedEventArgs e)
+        {//When clicked, navigate to destination page, closing the current page
+            new MainMenu().Show();
+            this.Close();
+        }
     }
 }
