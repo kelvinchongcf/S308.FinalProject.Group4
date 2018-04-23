@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Newtonsoft.Json;
+using Microsoft.Win32;
 
 namespace FitnessClub
 {
@@ -28,21 +31,22 @@ namespace FitnessClub
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            
-                txtOutput.Text = "Membership Type:".PadRight(12) + "Gold" + Environment.NewLine +
-                    "StartDate:".PadRight(12) + "01/01/2018" + Environment.NewLine + "EndDate:".PadRight(12) + "01/01/2019" + Environment.NewLine
-                    + "Membership Cost:".PadRight(12) + "$35" + Environment.NewLine
-                    + "Subtotal:".PadRight(12) + "$420" + Environment.NewLine
-                    + "Additional Features:".PadRight(12) + Environment.NewLine + "Personal Training Plan".PadRight(12).PadLeft(5) + "$200" + Environment.NewLine
-                    + "Total:".PadRight(12) + "$620" + Environment.NewLine;
-            txtOutput.Text = txtOutput.Text + "First Name".PadRight(12) + "Last Name".PadRight(12) + "Membership Type".PadRight(12) + Environment.NewLine;
-            txtOutput.Text = txtOutput.Text + "Boy".PadRight(12) + "Martin".PadRight(12) + "Gold".PadRight(12) + Environment.NewLine;
-            txtOutput.Text = txtOutput.Text + "Expiration Date".PadRight(12) + "Phone".PadRight(12) + "e-Mail".PadRight(12) + Environment.NewLine;
-            txtOutput.Text = txtOutput.Text + "01/01/2019".PadRight(12) + "4448571345".PadRight(12) + "bmartin@iu.edu".PadRight(12) + Environment.NewLine;
-             txtOutput.Text = txtOutput.Text + "Gender".PadRight(12) + "Age".PadRight(12) + "Weight".PadRight(12) + Environment.NewLine +
-                 "Male".PadRight(12) + "20".PadRight(12) + "180".PadRight(12) + Environment.NewLine;
-            
+            string strFilePath = "data.json";
+            try
+            {
+                StreamReader reader = new StreamReader(strFilePath);
+                string jsonData = reader.ReadToEnd();
+                reader.Close();
 
+                memList = JsonConvert.DeserializeObject<List<Member>>(jsonData);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Data import failed: " + ex.Message);
+            }
+            memList
+            dtgMemberInfo.ItemsSource = queryList;
         }
     }
 }
