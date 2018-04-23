@@ -27,18 +27,21 @@ namespace FitnessClub
         }
 
         private void btnMembershipSalesWindow_Click(object sender, RoutedEventArgs e)
-        {
+        {//When clicked, navigate to destination page, closing the current page
             new MembershipSales().Show();
+            this.Close();
         }
 
         private void btnPricingManagementWindow_Click(object sender, RoutedEventArgs e)
-        {
+        {//When clicked, navigate to destination page, closing the current page
             new PricingManagement().Show();
+            this.Close();
         }
 
         private void btnMembershipInfoWindow_Click(object sender, RoutedEventArgs e)
-        {
+        {//When clicked, navigate to destination page, closing the current page
             new MemberInformation().Show();
+            this.Close();
         }
     }
 }
