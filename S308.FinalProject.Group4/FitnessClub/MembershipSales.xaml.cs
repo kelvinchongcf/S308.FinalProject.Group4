@@ -29,5 +29,24 @@ namespace FitnessClub
             new MainMenu().Show();
             this.Close();
         }
+
+        private void btnQuote_Click(object sender, RoutedEventArgs e)
+        {//Validation membership type is required
+            //if(cbbMembershipType.SelectedIndex == -1)
+            {
+               // MessageBox.Show("You must select a membership type!");
+                //return;
+            }
+
+            //Validation start date is not in the past
+            DateTime StartDate = Convert.ToDateTime(dpiStartDate.Text);
+            DateTime TodayDate = DateTime.Today;
+            
+            if(StartDate < TodayDate)
+            {
+                MessageBox.Show("Start date must be later than today's date!");
+                return;
+            }
+        }
     }
 }
