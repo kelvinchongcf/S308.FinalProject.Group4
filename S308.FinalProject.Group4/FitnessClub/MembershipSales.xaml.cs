@@ -39,7 +39,7 @@ namespace FitnessClub
 
                 pricingList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
 
-                foreach (var MembershipType in jsonData)
+                //foreach (string s in jsonData)
                 {
                     ComboBoxItem item = new ComboBoxItem();
                     cbbMembershipType.Items.Add(item);
