@@ -39,7 +39,7 @@ namespace FitnessClub
 
                 pricingList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
 
-                //foreach (string s in jsonData)
+                foreach (var s in jsonData)
                 {
                     ComboBoxItem item = new ComboBoxItem();
                     cbbMembershipType.Items.Add(item);
@@ -48,11 +48,6 @@ namespace FitnessClub
             catch (Exception ex)
             {
                 MessageBox.Show("Error in importing Membership Pricing: " + ex.Message);
-            }
-            {
-                ComboBoxItem item = new ComboBoxItem();
-
-                cbbMembershipType.Items.Add(item);
             }
         }
 
