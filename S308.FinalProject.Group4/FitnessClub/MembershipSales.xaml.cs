@@ -31,8 +31,29 @@ namespace FitnessClub
         }
         private void ImportPricingData()
         {
-            var json = File.ReadAllText(@"..\..\..\Data\MembershipPricing.json");
-           // var dict = 
+            string strFilePath = @"..\..\..\Data\MembershipPricing.json";
+            
+            try
+            {
+                string jsonData = File.ReadAllText(strFilePath);
+
+                pricingList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
+
+                foreach (var MembershipType in jsonData)
+                {
+                    ComboBoxItem item = new ComboBoxItem();
+                    cbbMembershipType.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in importing Membership Pricing: " + ex.Message);
+            }
+            {
+                ComboBoxItem item = new ComboBoxItem();
+
+                cbbMembershipType.Items.Add(item);
+            }
         }
 
 
