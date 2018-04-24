@@ -36,12 +36,15 @@ namespace FitnessClub
             try
             {
                 string jsonData = File.ReadAllText(strFilePath);
+               // MessageBox.Show("debug: " + jsonData.ToString());
 
                 pricingList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
 
-                foreach (var s in jsonData)
+                foreach (var s in pricingList)
                 {
                     ComboBoxItem item = new ComboBoxItem();
+                    //item.SetValue(null, "apple");
+                    //MessageBox.Show("debug " + item.ToString());
                     cbbMembershipType.Items.Add(item);
                 }
             }
