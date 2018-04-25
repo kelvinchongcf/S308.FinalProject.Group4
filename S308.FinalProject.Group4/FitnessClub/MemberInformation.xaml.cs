@@ -170,6 +170,14 @@ namespace FitnessClub
             else
                 return false;
         }
+
+        private void btnHomeFromPM_Click_1(object sender, RoutedEventArgs e)
+        {//When clicked, navigate to destination page, closing the current page
+            new MainMenu().Show();
+            this.Close();
+        }
+    
+
         //function to check validity of email
         private bool isValidEmail(string email)
         {
