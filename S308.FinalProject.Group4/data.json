@@ -1,0 +1,12 @@
+[{
+    "FirstName": "Homer",
+    "LastName": "Simpson",
+    "CreditCardType": "Visa",
+	"CreditCardNumber": "1234567809871234",
+    "PhoneNo": "8128887777",
+    "Email": "homer@simpsons.com",
+    "Gender": "Male",
+	"Age": "19",
+	"Weight":"190",
+	"PersonalGoals": "N/A"
+}]
