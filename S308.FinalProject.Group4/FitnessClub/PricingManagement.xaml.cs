@@ -23,5 +23,14 @@ namespace FitnessClub
         {
             InitializeComponent();
         }
+
+        private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
+        {
+            double NewPrice;
+            if (!Double.TryParse(txtNewPriceValue.Text, out NewPrice))
+            {
+                MessageBox.Show("Please enter a valid value as price");
+            }
+        }
     }
 }
