@@ -61,7 +61,7 @@ namespace FitnessClub
                 }
 
             }
-            string strFilePath = @"data.json";
+            string strFilePath = @"..\..\..\data.json";
             try
             {
                 StreamReader reader = new StreamReader(strFilePath);
