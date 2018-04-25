@@ -8,7 +8,12 @@
     "Gender": "Male",
 	"Age": "39",
 	"Weight":"190",
-	"PersonalGoals": "N/A"
+	"PersonalGoals": "N/A",
+	"MembershipTypes": "Individual",
+	"StartDate": "01/01/2018",
+	"EndDate": "02/01/2018",
+	"MonthlyCost": "9.99",
+	"Total": "9.99"
 },{
     "FirstName": "Bart",
     "LastName": "Simpson",
@@ -19,7 +24,12 @@
     "Gender": "Male",
 	"Age": "10",
 	"Weight":"110",
-	"PersonalGoals": "N/A"
+	"PersonalGoals": "N/A",
+	"MembershipTypes": "Individual",
+	"StartDate": "01/01/2018",
+	"EndDate": "02/01/2018",
+	"MonthlyCost": "9.99",
+	"Total": "9.99"
 },{
     "FirstName": "Margaret",
     "LastName": "Simpson",
@@ -30,7 +40,12 @@
     "Gender": "Female",
 	"Age": "29",
 	"Weight":"150",
-	"PersonalGoals": "N/A"
+	"PersonalGoals": "N/A",
+	"MembershipTypes": "Individual",
+	"StartDate": "01/01/2018",
+	"EndDate": "02/01/2018",
+	"MonthlyCost": "9.99",
+	"Total": "9.99"
 },{
     "FirstName": "Lisa",
     "LastName": "Simpson",
@@ -41,5 +56,10 @@
     "Gender": "Female",
 	"Age": "11",
 	"Weight":"105",
-	"PersonalGoals": "N/A"
+	"PersonalGoals": "N/A",
+	"MembershipTypes": "Individual",
+	"StartDate": "01/01/2018",
+	"EndDate": "02/01/2018",
+	"MonthlyCost": "9.99",
+	"Total": "9.99"
 }]
