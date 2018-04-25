@@ -34,7 +34,34 @@ namespace FitnessClub
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string strFilePath = "data.json";
+            //Validate last name
+            int num;
+            if (int.TryParse(txtLastNameSearch.Text, out num))
+            {
+                MessageBox.Show("Last name cannot be numeric.");
+                return;
+            }
+            //Validate phone number
+            if(txtPhoneSearch.Text.Length != 0)
+            {
+                if (txtPhoneSearch.Text.Length != 10)
+                {
+                    MessageBox.Show("Phone number is not valid.");
+                    return;
+                }
+            }
+            //Validate email
+            if (txtEmailSearch.Text.Length != 0)
+            {
+                //Using functions to make sure it's a valid email format
+                if (isValidEmail(txtEmailSearch.Text.Trim()) == false)
+                {
+                    MessageBox.Show("Email is invalid.");
+                    return;
+                }
+
+            }
+            string strFilePath = @"data.json";
             try
             {
                 StreamReader reader = new StreamReader(strFilePath);
@@ -49,42 +76,50 @@ namespace FitnessClub
                 MessageBox.Show("Data import failed: " + ex.Message);
             }
             //Find matching data to criterias from the list
+            //All criterias being used
             if (txtLastNameSearch.Text.Length != 0 && txtEmailSearch.Text.Length != 0 && txtPhoneSearch.Text.Length != 0)
             {
                 queryList = memList.FindAll(searchLastName);
                 queryList = queryList.FindAll(searchEmail);
                 queryList = queryList.FindAll(searchPhone);
             }
+            //Only last name as criteria
             else if (txtLastNameSearch.Text.Length != 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length == 0)
             {
                 queryList = memList.FindAll(searchLastName);
             }
+            //Only email as criteria
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length != 0 && txtPhoneSearch.Text.Length == 0)
             {
                 queryList = memList.FindAll(searchEmail);
             }
+            //Only use phone number as criteria
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length != 0)
             {
                 queryList = memList.FindAll(searchPhone);
             }
+            //Use both email and phone as criteias
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length != 0 && txtPhoneSearch.Text.Length != 0)
             {
                 queryList = memList.FindAll(searchEmail);
                 queryList = queryList.FindAll(searchPhone);
             }
+            //Use both last name and phone as criterias
             else if (txtLastNameSearch.Text.Length != 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length != 0)
             {
                 queryList = memList.FindAll(searchLastName);
                 queryList = queryList.FindAll(searchPhone);
             }
+            //Use both last name and email as criterias
             else if (txtLastNameSearch.Text.Length != 0 && txtEmailSearch.Text.Length != 0 && txtPhoneSearch.Text.Length == 0)
             {
                 queryList = memList.FindAll(searchLastName);
                 queryList = queryList.FindAll(searchEmail);
             }
+            //If criteria is empty return everything in the list
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length == 0)
             {
-                MessageBox.Show("Criteria(s) can't be empty");
+                dtgMemInfo.ItemsSource = memList;
                 return;
             }
             dtgMemInfo.ItemsSource = queryList;
@@ -119,12 +154,25 @@ namespace FitnessClub
         //find phone
         private bool searchPhone(Members m)
         {
-            if (m.PhoneNo == Convert.ToInt32(txtPhoneSearch.Text))
+            if (m.PhoneNo == Convert.ToDouble(txtPhoneSearch.Text))
             {
                 return true;
             }
             else
                 return false;
+        }
+        //function to check validity of email
+        private bool isValidEmail(string email)
+        {
+            try
+            {
+                var address = new System.Net.Mail.MailAddress(email);
+                return address.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
     }
