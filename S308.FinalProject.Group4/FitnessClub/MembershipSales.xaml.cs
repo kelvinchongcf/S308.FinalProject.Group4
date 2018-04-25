@@ -31,7 +31,7 @@ namespace FitnessClub
         }
         private void ImportPricingData()
         {
-            string strFilePath = @"..\..\..\Data\MembershipPricing.json";
+            string strFilePath = @"..\..\..\MembershipPricing.json";
             
             try
             {
