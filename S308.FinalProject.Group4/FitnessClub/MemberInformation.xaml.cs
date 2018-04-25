@@ -119,10 +119,19 @@ namespace FitnessClub
             //If criteria is empty return everything in the list
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length == 0)
             {
-                dtgMemInfo.ItemsSource = memList;
+                MessageBox.Show("No criterias were entered. Please input into one of the criteria above.");
                 return;
             }
-            dtgMemInfo.ItemsSource = queryList;
+            bool isEmpty = !queryList.Any();
+            if (isEmpty)
+            {
+                MessageBox.Show("No matching record.");
+                return;
+            }
+            else {
+                dtgMemInfo.ItemsSource = queryList;
+                return;
+            }
         }
 
         private void btnHomeFromPM_Click(object sender, RoutedEventArgs e)

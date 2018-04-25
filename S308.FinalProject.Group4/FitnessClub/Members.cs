@@ -18,5 +18,10 @@ namespace FitnessClub
         public int Age { get; set; }
         public double Weight { get; set; }
         public string PersonalGoals { get; set; }
+        public string MembershipTypes { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public double MonthlyCost { get; set; }
+        public double Total { get; set; }
     }
 }
