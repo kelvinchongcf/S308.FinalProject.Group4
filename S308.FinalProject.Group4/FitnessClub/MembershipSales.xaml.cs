@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace FitnessClub
 {
@@ -19,9 +21,63 @@ namespace FitnessClub
     /// </summary>
     public partial class MembershipSales : Window
     {
+        List<Pricing> pricingList;
         public MembershipSales()
         {
             InitializeComponent();
+            pricingList = new List<Pricing>();
+            ImportPricingData();
+
+        }
+        private void ImportPricingData()
+        {
+            string strFilePath = @"..\..\..\Data\MembershipPricing.json";
+            
+            try
+            {
+                string jsonData = File.ReadAllText(strFilePath);
+               // MessageBox.Show("debug: " + jsonData.ToString());
+
+                pricingList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
+
+                foreach (var s in pricingList)
+                {
+                    ComboBoxItem item = new ComboBoxItem();
+                    //item.SetValue(null, "apple");
+                    //MessageBox.Show("debug " + item.ToString());
+                    cbbMembershipType.Items.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in importing Membership Pricing: " + ex.Message);
+            }
+        }
+
+
+        private void btnHomeFromPM_Click(object sender, RoutedEventArgs e)
+        {//When clicked, navigate to destination page, closing the current page
+            new MainMenu().Show();
+            this.Close();
+        }
+
+        private void btnQuote_Click(object sender, RoutedEventArgs e)
+        {//Validation membership type is required
+            //if(cbbMembershipType.SelectedIndex == -1)
+            {
+               // MessageBox.Show("You must select a membership type!");
+                //return;
+            }
+
+            //Validation start date is not in the past
+            DateTime StartDate = Convert.ToDateTime(dpiStartDate.Text);
+            DateTime TodayDate = DateTime.Today;
+            
+            if(StartDate < TodayDate)
+            {
+                MessageBox.Show("Start date must be later than today's date!");
+                return;
+            }
         }
     }
 }
