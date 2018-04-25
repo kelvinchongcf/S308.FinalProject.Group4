@@ -24,11 +24,13 @@ namespace FitnessClub
             InitializeComponent();
         }
 
-        private void btnHomeFromPM_Click(object sender, RoutedEventArgs e)
+        private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
         {
-            //When clicked, navigate to destination page, closing the current page
-            new MainMenu().Show();
-            this.Close();
+            double NewPrice;
+            if (!Double.TryParse(txtNewPriceValue.Text, out NewPrice))
+            {
+                MessageBox.Show("Please enter a valid value as price");
+            }
         }
     }
 }
