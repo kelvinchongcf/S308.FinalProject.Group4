@@ -1,0 +1,32 @@
+[
+  {
+    "Membership Type": "Individual 1 Month",
+    "Price": "$9.99",
+    "Availability": "TRUE"
+  },
+  {
+    "Membership Type": "Individual 12 Month",
+    "Price": "$100.00",
+    "Availability": "TRUE"
+  },
+  {
+    "Membership Type": "Two Person 1 Month",
+    "Price": "$14.99",
+    "Availability": "TRUE"
+  },
+  {
+    "Membership Type": "Two Person 12 Month",
+    "Price": "$150.00",
+    "Availability": "TRUE"
+  },
+  {
+    "Membership Type": "Family 1 Month",
+    "Price": "$19.99",
+    "Availability": "TRUE"
+  },
+  {
+    "Membership Type": "Family 12 Month",
+    "Price": "$200.00",
+    "Availability": "TRUE"
+  }
+]
