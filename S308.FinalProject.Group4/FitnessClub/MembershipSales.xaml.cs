@@ -28,6 +28,18 @@ namespace FitnessClub
             pricingList = new List<Pricing>();
             ImportPricingData();
 
+            //Input area disabled until quote preview
+            txtFirstName.IsEnabled = false;
+            txtLastName.IsEnabled = false;
+            cbbCreditCardType.IsEnabled = false;
+            txtCreditCardNumber.IsEnabled = false;
+            txtPhone.IsEnabled = false;
+            txtEmail.IsEnabled = false;
+            cbbGender.IsEnabled = false;
+            txtAge.IsEnabled = false;
+            txtWeight.IsEnabled = false;
+            cbbPersonalGoal.IsEnabled = false;
+
         }
         //Load membership type from json file to combobox
         private void ImportPricingData()
@@ -158,7 +170,37 @@ namespace FitnessClub
 
             //Calculate Total Cost
             lblCalcTotalCost.Content = ((dblSubtotal + ((dblAddPTP + dblAddLR) * dblNumberOfMonths)).ToString("c2"));
+
+            //Validation input areas after quote preview
+            string strInsideQuoteBox;
+            strInsideQuoteBox = Convert.ToString(lblCalcTotalCost.Content);
+
+            if (strInsideQuoteBox == "")
+            {
+                txtFirstName.IsEnabled = false;
+                txtLastName.IsEnabled = false;
+                cbbCreditCardType.IsEnabled = false;
+                txtCreditCardNumber.IsEnabled = false;
+                txtPhone.IsEnabled = false;
+                txtEmail.IsEnabled = false;
+                cbbGender.IsEnabled = false;
+                txtAge.IsEnabled = false;
+                txtWeight.IsEnabled = false;
+                cbbPersonalGoal.IsEnabled = false;
+            }
+            else
+                txtFirstName.IsEnabled = true;
+                txtLastName.IsEnabled = true;
+                cbbCreditCardType.IsEnabled = true;
+                txtCreditCardNumber.IsEnabled = true;
+                txtPhone.IsEnabled = true;
+                txtEmail.IsEnabled = true;
+                cbbGender.IsEnabled = true;
+                txtAge.IsEnabled = true;
+                txtWeight.IsEnabled = true;
+                cbbPersonalGoal.IsEnabled = true;
         }
-    }
+
+    } 
 }
     
