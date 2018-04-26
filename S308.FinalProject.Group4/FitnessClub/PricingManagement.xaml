@@ -12,14 +12,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label x:Name="lblMembershipType" Content="Membership/ Feature Type: " HorizontalAlignment="Left" Height="36" Margin="10,85,0,0" VerticalAlignment="Top" Width="218" FontFamily="Courier New" FontSize="13.333" Foreground="White"/>
-        <ComboBox x:Name="cbxMembershipType" HorizontalAlignment="Left" Margin="233,85,0,0" VerticalAlignment="Top" Width="249" FontFamily="Courier New" FontSize="16" Grid.ColumnSpan="2" Height="24" TabIndex="1">
-            <ComboBoxItem x:Name="cbiIndividual1" Content="Individual 1 Month" HorizontalAlignment="Left" Width="247"/>
-            <ComboBoxItem x:Name="cbiIndividual12" Content="Individual 12 Month" HorizontalAlignment="Left" Width="247"/>
-            <ComboBoxItem x:Name="cbiTwoPerson1" Content="Two Person 1 Month" HorizontalAlignment="Left" Width="247"/>
-            <ComboBoxItem x:Name="cbiTwoPerson12" Content="Two Person 12 Month" HorizontalAlignment="Left" Width="247"/>
-            <ComboBoxItem x:Name="cbiFamily1" Content="Family 1 Month" HorizontalAlignment="Left" Width="247"/>
-            <ComboBoxItem x:Name="cbiFamily2" Content="Family 12 Month" HorizontalAlignment="Left" Width="247"/>
-        </ComboBox>
+        <ComboBox x:Name="cbxMembershipType" HorizontalAlignment="Left" Margin="233,85,0,0" VerticalAlignment="Top" Width="249" FontFamily="Courier New" FontSize="16" Grid.ColumnSpan="2" Height="24" TabIndex="1"/>
         <Label x:Name="lblCurrent" Content="Current" HorizontalAlignment="Left" Height="28" Margin="0,121,0,0" VerticalAlignment="Top" Width="246" FontFamily="Courier New" FontSize="13.333" Foreground="White" HorizontalContentAlignment="Center"/>
         <Label x:Name="lblMakeChanges" Content="Make Changes" HorizontalAlignment="Left" Height="28" Margin="0,121,0,0" VerticalAlignment="Top" Width="246" FontFamily="Courier New" FontSize="13.333" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="1"/>
         <Label x:Name="lblOldPrice" Content="Price:" HorizontalAlignment="Left" Height="28" Margin="10,150,0,0" VerticalAlignment="Top" Width="55" FontFamily="Courier New" FontSize="13.333" Foreground="White"/>

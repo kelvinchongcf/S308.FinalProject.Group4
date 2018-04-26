@@ -50,7 +50,7 @@ namespace FitnessClub
                 foreach (var s in pricingList)
                 {
                     ComboBoxItem item = new ComboBoxItem();
-                    item.Name = "cbi" + s.MembershipType;
+                    item.Name = "cbi" + s.MembershipType.Substring(0,s.MembershipType.IndexOf(" ")) + s.MembershipType.Substring(s.MembershipType.IndexOf(" ")+1,2).Trim();
                     item.Content = s.MembershipType;
                     cbxMembershipType.Items.Add(item);
                 }
