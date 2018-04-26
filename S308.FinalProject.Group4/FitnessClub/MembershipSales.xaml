@@ -53,8 +53,8 @@
         <Label x:Name="lblShowMembership" Content="abc" HorizontalAlignment="Left" Margin="265,258,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblShowStartDate" Content="Start Date:" HorizontalAlignment="Left" Margin="18,313,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblShowEndDate" Content="End Date:" HorizontalAlignment="Left" Margin="18,339,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
-        <Label x:Name="lblShowMembership_Copy" Content="abc" HorizontalAlignment="Left" Margin="265,339,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
-        <Label x:Name="lblShowMembership_Copy1" Content="abc" HorizontalAlignment="Left" Margin="265,313,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
+        <Label x:Name="lblShowEndDateAnswer" Content="abc" HorizontalAlignment="Left" Margin="265,339,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
+        <Label x:Name="lblShowStartDateAnswer" Content="abc" HorizontalAlignment="Left" Margin="265,313,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
 
     </Grid>
 </Window>

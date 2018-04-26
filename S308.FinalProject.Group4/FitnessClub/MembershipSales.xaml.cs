@@ -136,13 +136,19 @@ namespace FitnessClub
 
             lblCalcCostPerMonth.Content = dblMembershipPrice.ToString("c2");
 
+            //Show the start date user selected
+            lblShowStartDateAnswer.Content = dpiStartDate.SelectedDate;
 
+            
             //Months to use
             if (cbbMembershipType.SelectedIndex == 0 || cbbMembershipType.SelectedIndex == 2 || cbbMembershipType.SelectedIndex == 4)
             {
                 dblNumberOfMonths = 1;
             }
             else dblNumberOfMonths = 12;
+
+            //Show the end date
+            lblShowEndDateAnswer.Content = dtiStartDate.AddMonths(Convert.ToInt16(dblNumberOfMonths));
 
             //Calculating Subtotal
             dblSubtotal = dblMembershipPrice * dblNumberOfMonths;
