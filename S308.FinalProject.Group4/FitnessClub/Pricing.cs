@@ -9,7 +9,7 @@ namespace FitnessClub
     public class Pricing
     {
         public string MembershipType { get; set; }
-        public string Price { get; set; }
-        public bool Availability { get; set; }
+        public double Price { get; set; }
+        public string Availability { get; set; }
     }
 }
