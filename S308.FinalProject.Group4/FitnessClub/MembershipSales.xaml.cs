@@ -140,9 +140,24 @@ namespace FitnessClub
 
             //Calculating Subtotal
             dblSubtotal = dblMembershipPrice * dblNumberOfMonths;
-            lblCalcSubtotal.Content = "$" + dblSubtotal;
-
+            lblCalcSubtotal.Content = dblSubtotal.ToString("c2");
             //Calculate Additional Cost
+            if (cboPersonalTraining.IsChecked == true)
+            {
+                dblAddPTP = 5.00;
+            }
+            else dblAddPTP = 0;
+
+            if (cboLocker.IsChecked == true)
+            {
+                dblAddLR = 1.00;
+            }
+            else dblAddLR = 0;
+
+            lblCalcAddCost.Content = ((dblAddPTP + dblAddLR) * dblNumberOfMonths).ToString("c2");
+
+            //Calculate Total Cost
+            lblCalcTotalCost.Content = ((dblSubtotal + ((dblAddPTP + dblAddLR) * dblNumberOfMonths)).ToString("c2"));
         }
     }
 }
