@@ -201,6 +201,62 @@ namespace FitnessClub
                 cbbPersonalGoal.IsEnabled = true;
         }
 
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            //Validation for inputs
+            //Validation for first name
+            if(txtFirstName.Text == "")
+            {
+                MessageBox.Show("Please enter a first name!");
+                return;
+            }
+
+            //validation for last name
+            if(txtLastName.Text == "")
+            {
+                MessageBox.Show("Please enter a last name!");
+                return;
+            }
+
+            //validation for credit card type
+            if(cbbCreditCardType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a credit card type!");
+                return;
+            }
+            //validation for credit card number
+            if(txtCreditCardNumber.Text == "")
+            {
+                MessageBox.Show("Please enter a credit card number!");
+                return;
+            }
+            //validation for phone number
+            if(txtPhone.Text.Length != 10)
+            {
+                MessageBox.Show("Please enter a valid 10-digit phone number!");
+                return;
+            }
+
+            int intPhoneNumber;
+            if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
+            {
+                MessageBox.Show("Phone number should only contain numbers!");
+                return;
+            }
+            //validation for email
+            if(txtEmail.Text == "")
+            {
+                MessageBox.Show("Please enter an email address!");
+                return;
+            }
+            //validation for gender
+            if (cbbGender.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an option for gender!");
+                return;
+            }
+            
+        }
     } 
 }
     

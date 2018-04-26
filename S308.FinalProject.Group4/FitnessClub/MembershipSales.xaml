@@ -22,7 +22,7 @@
         <Label x:Name="lblCalcAddCost" Content="" HorizontalAlignment="Left" Margin="266,398,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="77"/>
         <Label x:Name="lblCalcTotalCost" Content="" HorizontalAlignment="Left" Margin="265,426,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="77"/>
         <Button x:Name="btnQuote" Content="Quote Price" HorizontalAlignment="Left" Margin="218,204,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23" Click="btnQuote_Click"/>
-        <Button x:Name="btnConfirm" Content="Confirm" HorizontalAlignment="Left" Margin="754,375,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23"/>
+        <Button x:Name="btnConfirm" Content="Confirm" HorizontalAlignment="Left" Margin="754,375,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23" Click="btnConfirm_Click"/>
         <Image x:Name="imgNameMembershipSales" HorizontalAlignment="Left" Height="24" Margin="0,41,0,0" VerticalAlignment="Top" Width="106" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
         <Image x:Name="imgMembershipSales" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="84" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
         <Label x:Name="lblMembershipSalesSystem" Content="Membership Sales System" HorizontalAlignment="Left" Margin="118,31,0,0" VerticalAlignment="Top" Height="47" Width="333" FontFamily="Courier New" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
@@ -44,17 +44,32 @@
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="703,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
         <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="23" Margin="703,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
         <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Height="23" Margin="703,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <ComboBox x:Name="cbbGender" HorizontalAlignment="Left" Margin="703,247,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New"/>
-        <ComboBox x:Name="cbbPersonalGoal" HorizontalAlignment="Left" Margin="703,329,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New"/>
-        <ComboBox x:Name="cbbCreditCardType" HorizontalAlignment="Left" Margin="703,139,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New" />
+        <ComboBox x:Name="cbbGender" HorizontalAlignment="Left" Margin="703,247,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New">
+            <ComboBoxItem Content="Male"/>
+            <ComboBoxItem Content="Female"/>
+            <ComboBoxItem Content="Not Provided"/>
+        </ComboBox>
+        <ComboBox x:Name="cbbPersonalGoal" HorizontalAlignment="Left" Margin="703,329,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New">
+            <ComboBoxItem Content="Athletic Performance"/>
+            <ComboBoxItem Content="Overall Health"/>
+            <ComboBoxItem Content="Strength Training"/>
+            <ComboBoxItem Content="Weight Loss"/>
+            <ComboBoxItem Content="Weight Management"/>
+        </ComboBox>
+        <ComboBox x:Name="cbbCreditCardType" HorizontalAlignment="Left" Margin="703,139,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New" >
+            <ComboBoxItem Content="Visa" Background="#00000000"/>
+            <Button Content="Mastercard" Background="#00000000" BorderBrush="Transparent"/>
+            <Button Content="Discover" Background="Transparent" BorderBrush="Transparent"/>
+            <Button Content="American Express" Background="Transparent" BorderBrush="Transparent"/>
+        </ComboBox>
         <Label x:Name="lblSubtotalCost" Content="Subtotal" HorizontalAlignment="Left" Margin="20,367,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblCalcSubtotal" Content="" HorizontalAlignment="Left" Margin="265,370,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="77"/>
         <Label x:Name="lblPreviewMembership" Content="Membership Type:" HorizontalAlignment="Left" Margin="18,258,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
-        <Label x:Name="lblShowMembership" Content="abc" HorizontalAlignment="Left" Margin="265,258,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
+        <Label x:Name="lblShowMembership" Content="" HorizontalAlignment="Left" Margin="265,258,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="121"/>
         <Label x:Name="lblShowStartDate" Content="Start Date:" HorizontalAlignment="Left" Margin="18,313,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblShowEndDate" Content="End Date:" HorizontalAlignment="Left" Margin="18,339,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
-        <Label x:Name="lblShowEndDateAnswer" Content="abc" HorizontalAlignment="Left" Margin="265,339,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
-        <Label x:Name="lblShowStartDateAnswer" Content="abc" HorizontalAlignment="Left" Margin="265,313,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
+        <Label x:Name="lblShowEndDateAnswer" Content="" HorizontalAlignment="Left" Margin="265,339,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="121"/>
+        <Label x:Name="lblShowStartDateAnswer" Content="" HorizontalAlignment="Left" Margin="265,313,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="121"/>
 
     </Grid>
 </Window>
