@@ -137,18 +137,12 @@ namespace FitnessClub
             lblCalcCostPerMonth.Content = dblMembershipPrice.ToString("c2");
 
 
-            //Calculation for number of months
-            DateTime dtiEndDate;
-            if (!DateTime.TryParse(dpiEndDate.Text, out dtiEndDate))
+            //Months to use
+            if (cbbMembershipType.SelectedIndex == 0 || cbbMembershipType.SelectedIndex == 2 || cbbMembershipType.SelectedIndex == 4)
             {
-                MessageBox.Show("Please select an end date!");
-                return;
+                dblNumberOfMonths = 1;
             }
-            
-            TimeSpan difference = dtiEndDate - dtiStartDate;
-            dblNumberOfDays = (double)difference.TotalDays;
-
-            dblNumberOfMonths = Math.Ceiling(dblNumberOfDays / 30);
+            else dblNumberOfMonths = 12;
 
             //Calculating Subtotal
             dblSubtotal = dblMembershipPrice * dblNumberOfMonths;
