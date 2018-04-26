@@ -114,10 +114,7 @@ namespace FitnessClub
                 dblMembershipPrice = 200.00;
             }
 
-            string strMembershipPrice;
-
-            //strMembershipPrice = Convert.ToString(dblMembershipPrice);
-            lblCalcCostPerMonth.Content = strMembershipPrice;
+            lblCalcCostPerMonth.Content = dblMembershipPrice.ToString;
             }
         }
     }
