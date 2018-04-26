@@ -151,8 +151,8 @@ namespace FitnessClub
             lblShowEndDateAnswer.Content = dtiStartDate.AddMonths(Convert.ToInt16(dblNumberOfMonths));
 
             //Calculating Subtotal
-            dblSubtotal = dblMembershipPrice * dblNumberOfMonths;
-            lblCalcSubtotal.Content = dblSubtotal.ToString("c2");
+            
+            lblCalcSubtotal.Content = (dblMembershipPrice * dblNumberOfMonths).ToString("c2");
             //Calculate Additional Cost
             if (cboPersonalTraining.IsChecked == true)
             {
@@ -169,7 +169,7 @@ namespace FitnessClub
             lblCalcAddCost.Content = ((dblAddPTP + dblAddLR) * dblNumberOfMonths).ToString("c2");
 
             //Calculate Total Cost
-            lblCalcTotalCost.Content = ((dblSubtotal + ((dblAddPTP + dblAddLR) * dblNumberOfMonths)).ToString("c2"));
+            lblCalcTotalCost.Content = (((dblMembershipPrice * dblNumberOfMonths) + ((dblAddPTP + dblAddLR) * dblNumberOfMonths)).ToString("c2"));
 
             //Validation input areas after quote preview
             string strInsideQuoteBox;
