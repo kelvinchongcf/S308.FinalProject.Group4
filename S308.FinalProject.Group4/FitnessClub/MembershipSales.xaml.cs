@@ -79,7 +79,45 @@ namespace FitnessClub
                 return;
             }
 
-            
+            //Calculation for quote price
+            //declare variables to hold calculated values
+            double dblQuotePrice;
+            double dblMembershipPrice;
+            double dblMembershipCostPerMonth;
+            double dblSubtotal;
+            double dblAddPTP;
+            double dblAddLR;
+
+            //Calculation for MembershipType
+            if (cbbMembershipType.SelectedIndex == 0)
+            {
+                dblMembershipPrice = 9.99;
+            }
+            else if (cbbMembershipType.SelectedIndex == 1)
+            {
+                dblMembershipPrice = 100.00;
+            }
+            else if (cbbMembershipType.SelectedIndex == 2)
+            {
+                dblMembershipPrice = 14.99;
+            }
+            else if (cbbMembershipType.SelectedIndex == 3)
+            {
+                dblMembershipPrice = 150.00;
+            }
+            else if (cbbMembershipType.SelectedIndex ==4 )
+            {
+                dblMembershipPrice = 19.99;
+            }
+            else if (cbbMembershipType.SelectedIndex == 5)
+            {
+                dblMembershipPrice = 200.00;
+            }
+
+            string strMembershipPrice;
+
+            //strMembershipPrice = Convert.ToString(dblMembershipPrice);
+            lblCalcCostPerMonth.Content = strMembershipPrice;
+            }
         }
     }
-}

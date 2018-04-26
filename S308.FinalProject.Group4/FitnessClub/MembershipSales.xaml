@@ -22,8 +22,8 @@
         <Label x:Name="lblCalcCostPerMonth" Content="$50.00" HorizontalAlignment="Left" Margin="265,292,0,0" VerticalAlignment="Top" FontSize="16" Width="72" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblCalcAddCost" Content="$6.00" HorizontalAlignment="Left" Margin="269,317,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblCalcTotalCost" Content="$112.00" HorizontalAlignment="Left" Margin="269,341,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
-        <Button x:Name="btnQuote" Content="Quote Price" HorizontalAlignment="Left" Margin="360,307,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23" Click="btnQuote_Click"/>
-        <Button x:Name="btnConfirm" Content="Confirm" HorizontalAlignment="Left" Margin="360,341,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23"/>
+        <Button x:Name="btnQuote" Content="Quote Price" HorizontalAlignment="Left" Margin="377,359,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23" Click="btnQuote_Click"/>
+        <Button x:Name="btnConfirm" Content="Confirm" HorizontalAlignment="Left" Margin="844,359,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23"/>
         <GroupBox x:Name="gboAdditionalFeatures" Header="Additional Features" HorizontalAlignment="Right" Margin="0,177,518,0" VerticalAlignment="Top" Height="102" Width="475" FontSize="16" FontFamily="Courier New" Foreground="White"/>
         <Image x:Name="imgNameMembershipSales" HorizontalAlignment="Left" Height="24" Margin="0,41,0,0" VerticalAlignment="Top" Width="106" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
         <Image x:Name="imgMembershipSales" HorizontalAlignment="Left" Height="40" Margin="10,10,0,0" VerticalAlignment="Top" Width="84" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
