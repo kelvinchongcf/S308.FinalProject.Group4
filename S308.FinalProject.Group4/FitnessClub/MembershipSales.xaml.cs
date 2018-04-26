@@ -29,6 +29,7 @@ namespace FitnessClub
             ImportPricingData();
 
         }
+        //Load membership type from json file to combobox
         private void ImportPricingData()
         {
             string strFilePath = @"..\..\..\MembershipPricing.json";
@@ -36,15 +37,14 @@ namespace FitnessClub
             try
             {
                 string jsonData = File.ReadAllText(strFilePath);
-               // MessageBox.Show("debug: " + jsonData.ToString());
 
                 pricingList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
 
                 foreach (var s in pricingList)
-                {
+                {   
                     ComboBoxItem item = new ComboBoxItem();
-                    //item.SetValue(null, "apple");
-                    //MessageBox.Show("debug " + item.ToString());
+                    item.Name = "cbi" + s.MembershipType.Substring(0, s.MembershipType.IndexOf(" ")) + s.MembershipType.Substring(s.MembershipType.IndexOf(" ") + 1, 2).Trim();
+                    item.Content = s.MembershipType;
                     cbbMembershipType.Items.Add(item);
                 }
             }
@@ -63,10 +63,10 @@ namespace FitnessClub
 
         private void btnQuote_Click(object sender, RoutedEventArgs e)
         {//Validation membership type is required
-            //if(cbbMembershipType.SelectedIndex == -1)
+            if(cbbMembershipType.SelectedIndex == -1)
             {
-               // MessageBox.Show("You must select a membership type!");
-                //return;
+                MessageBox.Show("You must select a membership type!");
+                return;
             }
 
             //Validation start date is not in the past
@@ -78,6 +78,8 @@ namespace FitnessClub
                 MessageBox.Show("Start date must be later than today's date!");
                 return;
             }
+
+            
         }
     }
 }

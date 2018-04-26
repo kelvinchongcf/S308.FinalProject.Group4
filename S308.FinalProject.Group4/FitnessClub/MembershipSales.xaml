@@ -9,7 +9,7 @@
     <Grid x:Name="wdwMembershipSales" Background="#FF640C97">
         <GroupBox x:Name="gboQuotePreview" Header="Quote Preview" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Height="103" Width="341" FontSize="16" FontFamily="Courier New" Foreground="White"/>
         <Label x:Name="lblMembershipType" Content="Membership Type" HorizontalAlignment="Left" Margin="19,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
-        <ComboBox x:Name="cbbMembershipType" HorizontalAlignment="Left" Margin="177,75,0,0" VerticalAlignment="Top" Width="120" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New"/>
+        <ComboBox x:Name="cbbMembershipType" HorizontalAlignment="Left" Margin="177,75,0,0" VerticalAlignment="Top" Width="235" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New"/>
         <DatePicker x:Name="dpiStartDate" HorizontalAlignment="Left" Margin="19,129,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Courier New"/>
         <Label x:Name="lblStartDate" Content="Start Date" HorizontalAlignment="Left" Margin="37,105,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
         <DatePicker x:Name="dpiEndDate" HorizontalAlignment="Left" Margin="253,129,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Courier New"/>
