@@ -33,7 +33,7 @@ namespace FitnessClub
         private void ImportPricingData()
         {
             string strFilePath = @"..\..\..\MembershipPricing.json";
-            
+
             try
             {
                 string jsonData = File.ReadAllText(strFilePath);
@@ -41,7 +41,7 @@ namespace FitnessClub
                 pricingList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
 
                 foreach (var s in pricingList)
-                {   
+                {
                     ComboBoxItem item = new ComboBoxItem();
                     item.Name = "cbi" + s.MembershipType.Substring(0, s.MembershipType.IndexOf(" ")) + s.MembershipType.Substring(s.MembershipType.IndexOf(" ") + 1, 2).Trim();
                     item.Content = s.MembershipType;
@@ -63,17 +63,22 @@ namespace FitnessClub
 
         private void btnQuote_Click(object sender, RoutedEventArgs e)
         {//Validation membership type is required
-            if(cbbMembershipType.SelectedIndex == -1)
+            if (cbbMembershipType.SelectedIndex == -1)
             {
                 MessageBox.Show("You must select a membership type!");
                 return;
             }
 
             //Validation start date is not in the past
-            DateTime StartDate = Convert.ToDateTime(dpiStartDate.Text);
-            DateTime TodayDate = DateTime.Today;
-            
-            if(StartDate < TodayDate)
+            DateTime dtiStartDate;
+            if (!DateTime.TryParse(dpiStartDate.Text, out dtiStartDate))
+            {
+                MessageBox.Show("Please select a start date!");
+                return;
+            }
+            DateTime dtiTodayDate = DateTime.Today;
+
+            if (dtiStartDate < dtiTodayDate)
             {
                 MessageBox.Show("Start date must be later than today's date!");
                 return;
@@ -83,6 +88,9 @@ namespace FitnessClub
             //declare variables to hold calculated values
             double dblQuotePrice;
             double dblMembershipPrice;
+            double dblNumberOfMonths;
+            int intNumberOfDays;
+            double dblNumberOfDays;
             double dblMembershipCostPerMonth;
             double dblSubtotal;
             double dblAddPTP;
@@ -105,16 +113,37 @@ namespace FitnessClub
             {
                 dblMembershipPrice = 150.00;
             }
-            else if (cbbMembershipType.SelectedIndex ==4 )
+            else if (cbbMembershipType.SelectedIndex == 4)
             {
                 dblMembershipPrice = 19.99;
             }
-            else if (cbbMembershipType.SelectedIndex == 5)
+            else
             {
                 dblMembershipPrice = 200.00;
             }
 
-            lblCalcCostPerMonth.Content = dblMembershipPrice.ToString;
+            lblCalcCostPerMonth.Content = dblMembershipPrice.ToString("c2");
+
+
+            //Calculation for number of months
+            DateTime dtiEndDate;
+            if (!DateTime.TryParse(dpiEndDate.Text, out dtiEndDate))
+            {
+                MessageBox.Show("Please select an end date!");
+                return;
             }
+            
+            TimeSpan difference = dtiEndDate - dtiStartDate;
+            dblNumberOfDays = (double)difference.TotalDays;
+
+            dblNumberOfMonths = Math.Ceiling(dblNumberOfDays / 30);
+
+            //Calculating Subtotal
+            dblSubtotal = dblMembershipPrice * dblNumberOfMonths;
+            lblCalcSubtotal.Content = "$" + dblSubtotal;
+
+            //Calculate Additional Cost
         }
     }
+}
+    
