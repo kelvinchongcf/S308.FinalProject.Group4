@@ -61,6 +61,11 @@ namespace FitnessClub
             }
         }
 
+        private void cbxMembershipType_SelectionIndexChanged(object sender, EventArgs e)
+        {
+            lblOldPriceValue.Content = "";
+            lblOldAvailabilityCheck.Content = "";
+        }
 
 
         private void btnSaveChanges_Click(object sender, RoutedEventArgs e)
