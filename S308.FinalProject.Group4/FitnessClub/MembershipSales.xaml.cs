@@ -43,6 +43,7 @@ namespace FitnessClub
         }
         //define path for new member info
         string strMembersPath = @"..\..\..\data.json";
+
         //Load membership type from json file to combobox
         private void ImportPricingData()
         {
