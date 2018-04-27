@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="MemberInformation" Height="500" Width="1079">
+        Title="MemberInformation" Height="500" Width="1070">
     <Grid x:Name="wdwMemberInfo" Background="#FF640C97">
         <Label x:Name="lblLastNameSearch" Content="Search by Last Name:" HorizontalAlignment="Left" Margin="7,111,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="13.333" FontFamily="Courier New" Width="186" HorizontalContentAlignment="Right"/>
         <Label x:Name="lblPhoneSearch" Content="Search by Phone Number:" HorizontalAlignment="Left" Margin="7,142,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="13.333" FontFamily="Courier New" HorizontalContentAlignment="Right"/>
