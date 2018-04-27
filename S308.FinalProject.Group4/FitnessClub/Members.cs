@@ -23,5 +23,7 @@ namespace FitnessClub
         public DateTime EndDate { get; set; }
         public double MonthlyCost { get; set; }
         public double Total { get; set; }
+        public bool PersonalTraining { get; set; }
+        public bool LockerRental { get; set; }
     }
 }
