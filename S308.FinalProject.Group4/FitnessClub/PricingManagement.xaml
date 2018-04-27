@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessClub"
         mc:Ignorable="d"
-        Title="PricingManagement" Height="305" Width="500">
+        Title="PricingManagement" Height="332.5" Width="500">
     <Grid x:Name="wdwPricingMgmt" Background="#FF640C97">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -22,8 +22,8 @@
         <Image x:Name="imgNamePricingManagement" HorizontalAlignment="Left" Height="24" Margin="0,51,0,0" VerticalAlignment="Top" Width="106" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
         <Image x:Name="imgLogoPricingManagement" HorizontalAlignment="Left" Height="40" Margin="10,20,0,0" VerticalAlignment="Top" Width="84" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
         <Label x:Name="lblPricingManagementSystem" Content="Pricing Management System" HorizontalAlignment="Left" Margin="120,28,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="47" Width="333" FontFamily="Courier New" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
-        <Label x:Name="lblOldPriceValue" Content="$9.99" HorizontalAlignment="Left" Height="28" Margin="65,167,0,0" VerticalAlignment="Top" Width="110" FontFamily="Courier New" FontSize="13.333" Foreground="White" FontWeight="Bold"/>
-        <Label x:Name="lblOldAvailabilityCheck" Content="YES" HorizontalAlignment="Left" Height="28" Margin="120,197,0,0" VerticalAlignment="Top" Width="110" FontFamily="Courier New" FontSize="13.333" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblOldPriceValue" Content="" HorizontalAlignment="Left" Height="28" Margin="66,167,0,0" VerticalAlignment="Top" Width="68" FontFamily="Courier New" FontSize="13.333" Foreground="White" FontWeight="Bold"/>
+        <Label x:Name="lblOldAvailabilityCheck" Content="" HorizontalAlignment="Left" Height="28" Margin="120,197,0,0" VerticalAlignment="Top" Width="110" FontFamily="Courier New" FontSize="13.333" Foreground="White" FontWeight="Bold"/>
         <TextBox x:Name="txtNewPriceValue" Grid.Column="1" HorizontalAlignment="Left" Height="22" Margin="118,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="89" FontFamily="Courier New" FontSize="16" FontWeight="Bold" Text="12.99" TabIndex="2"/>
         <RadioButton x:Name="rdbYesAvailability" Content="Yes" Grid.Column="1" HorizontalAlignment="Left" Margin="132,201,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="16" Foreground="White" Background="#FFFDFDFD" TabIndex="3" IsChecked="True"/>
         <RadioButton x:Name="rdbNoAvailability" Content="No" Grid.Column="1" HorizontalAlignment="Left" Margin="190,201,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="16" Foreground="White" TabIndex="4"/>

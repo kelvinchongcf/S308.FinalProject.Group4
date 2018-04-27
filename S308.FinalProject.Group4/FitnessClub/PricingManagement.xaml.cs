@@ -53,6 +53,12 @@ namespace FitnessClub
                     item.Name = "cbi" + s.MembershipType.Substring(0,s.MembershipType.IndexOf(" ")) + s.MembershipType.Substring(s.MembershipType.IndexOf(" ")+1,2).Trim();
                     item.Content = s.MembershipType;
                     cbxMembershipType.Items.Add(item);
+
+                    if(item.IsSelected)
+                    {
+                        lblOldPriceValue.Content = s.Price.ToString("C2");
+                        lblOldAvailabilityCheck.Content = s.Availability;
+                    }
                 }
             }
             catch (Exception ex)
@@ -80,8 +86,16 @@ namespace FitnessClub
 
         private void btnSearchInfo_Click(object sender, RoutedEventArgs e)
         {
-            lblOldPriceValue.Content = "";
-            lblOldAvailabilityCheck.Content = "";
+            string SelectedItem;
+            SelectedItem = cbxMembershipType.SelectedValue.ToString().Substring(cbxMembershipType.SelectedValue.ToString().IndexOf(":")+1).Trim();
+            foreach (var s in pricingList)
+            {
+                if (SelectedItem == s.MembershipType)
+                {
+                    lblOldPriceValue.Content = s.Price.ToString("C2");
+                    lblOldAvailabilityCheck.Content = s.Availability;
+                }
+            }
         }
     }
 }
