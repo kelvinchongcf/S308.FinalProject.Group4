@@ -43,6 +43,10 @@ namespace FitnessClub
         }
         //define path for new member info
         string strMembersPath = @"..\..\..\data.json";
+        Members NewMemberInfo = new Members();
+
+        //define a list to store new member info
+        List<Members> MemberInfo;        
 
         //Load membership type from json file to combobox
         private void ImportPricingData()
@@ -206,7 +210,7 @@ namespace FitnessClub
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            //Validation for inputs
+            /*//Validation for inputs
             //Validation for first name
             if(txtFirstName.Text == "")
             {
@@ -258,7 +262,35 @@ namespace FitnessClub
                 MessageBox.Show("Please select an option for gender!");
                 return;
             }
+            */
+            //Defining member input
+            string strMembershipType = "";
+            string strStartDate = "";
+            bool bolPersonalTraining;
+            bool bolLocker;
+            string strFirstName = "";
+            string strLastName = "";
+            string strPhone = "";
+            string strEmail = "";
+
+            //Define member variables
+            strMembershipType = Convert.ToString(cbbMembershipType.SelectedIndex);
+            strStartDate = Convert.ToString(dpiStartDate);
+            strLastName = txtLastName.Text;
+
+            //store data to json file
+            NewMemberInfo.FirstName = strFirstName;
+
+            //add passed data to the member list
+
+            MemberInfo.Add(NewMemberInfo);
+
+            //update json
+
+            UpdateJson(NewMemberInfo, strMembersPath);
             
+
+
         }
     } 
 }
