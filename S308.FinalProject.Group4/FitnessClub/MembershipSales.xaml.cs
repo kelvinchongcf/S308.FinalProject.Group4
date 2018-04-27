@@ -22,10 +22,12 @@ namespace FitnessClub
     public partial class MembershipSales : Window
     {
         List<Pricing> pricingList;
+        List<Members> memberList;
         public MembershipSales()
         {
             InitializeComponent();
             pricingList = new List<Pricing>();
+            memberList = new List<Members>();
             ImportPricingData();
 
             //Input area disabled until quote preview
@@ -41,12 +43,6 @@ namespace FitnessClub
             cbbPersonalGoal.IsEnabled = false;
 
         }
-        //define path for new member info
-        string strMembersPath = @"..\..\..\data.json";
-        Members NewMemberInfo = new Members();
-
-        //define a list to store new member info
-        List<Members> MemberInfo;        
 
         //Load membership type from json file to combobox
         private void ImportPricingData()
@@ -209,7 +205,20 @@ namespace FitnessClub
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
-        {
+        { //Define variables
+            bool bolAddMemberStatus;
+
+            //Call AddMember method and passing all needed inputs
+            //The method will return a booltype as the status of the add operation
+            bolAddMemberStatus = AddMembers(cbbMembershipType.SelectedItem, dpiStartDate.SelectedDate, lblCalcCostPerMonth.Content, lblCalcSubtotal.Content, cboPersonalTraining, cboLocker, lblCalcTotalCost.Content, txtFirstName.Text, txtLastName.Text, txtPhone.Text, txtEmail.Text, cbbGender.SelectedItem, txtAge.Text, txtWeight.Text, cbbPersonalGoal.SelectedItem);
+
+            //If the customer is added successfully, display message to user
+            if (bolAddMemberStatus)
+            {
+                MessageBox.Show("Successfully added!");
+            }
+        }
+            private bool AddMember()
             /*//Validation for inputs
             //Validation for first name
             if(txtFirstName.Text == "")
@@ -263,31 +272,8 @@ namespace FitnessClub
                 return;
             }
             */
-            //Defining member input
-            string strMembershipType = "";
-            string strStartDate = "";
-            bool bolPersonalTraining;
-            bool bolLocker;
-            string strFirstName = "";
-            string strLastName = "";
-            string strPhone = "";
-            string strEmail = "";
 
-            //Define member variables
-            strMembershipType = Convert.ToString(cbbMembershipType.SelectedIndex);
-            strStartDate = Convert.ToString(dpiStartDate);
-            strLastName = txtLastName.Text;
-
-            //store data to json file
-            NewMemberInfo.FirstName = strFirstName;
-
-            //add passed data to the member list
-
-            MemberInfo.Add(NewMemberInfo);
-
-            //update json
-
-            UpdateJson(NewMemberInfo, strMembersPath);
+           
             
 
 
