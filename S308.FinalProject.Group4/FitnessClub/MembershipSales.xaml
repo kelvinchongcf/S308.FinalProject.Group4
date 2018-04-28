@@ -18,7 +18,7 @@
         <CheckBox x:Name="cboLocker" Content="Locker Rental" HorizontalAlignment="Left" Margin="33,178,0,0" VerticalAlignment="Top" FontSize="16" Padding="4,-1,0,0" Height="21" Width="244" Foreground="White" FontFamily="Courier New" ClickMode="Press" Background="{x:Null}"/>
         <Label x:Name="lblAdditionalCosts" Content="Additional Costs" HorizontalAlignment="Left" Margin="19,398,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblTotalCost" Content="Total Cost" HorizontalAlignment="Left" Margin="19,431,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
-        <Label x:Name="lblCalcCostPerMonth" Content="" HorizontalAlignment="Left" Margin="265,285,0,0" VerticalAlignment="Top" FontSize="16" Width="78" Foreground="White" FontFamily="Courier New"/>
+        <Label x:Name="lblCalcCostPerMonth" Content="" HorizontalAlignment="Left" Margin="265,286,0,0" VerticalAlignment="Top" FontSize="16" Width="78" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblCalcAddCost" Content="" HorizontalAlignment="Left" Margin="266,398,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="87"/>
         <Label x:Name="lblCalcTotalCost" Content="" HorizontalAlignment="Left" Margin="265,426,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="77"/>
         <Button x:Name="btnQuote" Content="Quote Price" HorizontalAlignment="Left" Margin="218,204,0,0" VerticalAlignment="Top" Width="125" FontSize="16" FontFamily="Courier New" Height="23" Click="btnQuote_Click"/>

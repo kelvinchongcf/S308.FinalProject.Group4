@@ -208,7 +208,8 @@ namespace FitnessClub
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            //Append to text file
+            //Do validations on input here! (NOT YET DONE)
+            //Load text file into list
             string strFilePath1 = @"..\..\..\data.json";
 
             try
@@ -224,14 +225,30 @@ namespace FitnessClub
             {
                 MessageBox.Show("Data import failed: " + ex.Message);
             }
-            //Create a new class for new member
-            Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(),
-            NewMem.MembershipTypes = cbbMembershipType.SelectedItem.ToString();
-            NewMem.PhoneNo = Convert.ToInt32(txtPhone.Text);
+            //Create a new class for new member ( NOT FINISHED ) Add more into the variables I don't have access to. (Willy)
+            Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(), lblShowStartDateAnswer.Content, lblCalcCostPerMonth.Content,
+                lblCalcSubtotal.Content,,, lblCalcTotalCost.Content, txtFirstName.Text, txtLastName.Text,
+                Convert.ToInt32(txtPhone.Text),txtEmail.Text,cbbGender.SelectedIndex.ToString(),
+                Convert.ToInt32(txtAge.Text),Convert.ToDouble(txtWeight.Text),cbbPersonalGoal.SelectedIndex.ToString());
+            
             // add it to list of members
             memList.Add(NewMem);
-            //Overwrite text file 
+            //Overwrite json file with new list
 
+            try
+            {
+                StreamWriter writer = new StreamWriter(strFilePath1, false);
+                string jsonData = JsonConvert.SerializeObject(memList);
+                writer.Write(jsonData);
+                writer.Close();
+            }
+            //send error message if error occurs
+            catch (Exception ex)
+            {
+                MessageBox.Show("Export Failed: " + ex.Message);
+            }
+            //Senbd notification of saved file and the filepath of new file
+            MessageBox.Show("Export is successful." + Environment.NewLine + "File Created: " + strFilePath1);
 
 
         }
@@ -293,5 +310,4 @@ namespace FitnessClub
 
     }
     } 
-}
     
