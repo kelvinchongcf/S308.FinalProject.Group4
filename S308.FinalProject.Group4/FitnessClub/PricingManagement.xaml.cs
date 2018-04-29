@@ -100,6 +100,16 @@ namespace FitnessClub
                 }
             }
 
+            try
+            { string jsonData = JsonConvert.SerializeObject(pricingList);
+              System.IO.File.WriteAllText(@"..\..\..\MembershipPricing.json", jsonData);
+              MessageBox.Show("Changes saved");
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show("Changes Could Not be Saved");
+            }
 
         }
 
