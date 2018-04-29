@@ -304,7 +304,45 @@ namespace FitnessClub
             return false;
             }
 
-            newMember = new Member(mType,sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
+            //validate to not allow user to sell unavailable membership
+            string strAvailability = lblShowAvailability.Content.ToString();
+            if(strAvailability == "No")
+            {
+                MessageBox.Show("The selected membershiptype is not available, please select another membership!");
+            }
+
+            //if Age is not entered
+            string strAge = txtAge.Text;
+            if(strAge == "")
+            {
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), "N/A", weight, goal.ToString());
+            }
+            else
+            {
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
+            }
+
+            //if weight is not entered
+            string strWeight = txtWeight.Text;
+            if(strWeight == "")
+            {
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, "N/A", goal.ToString());
+            }
+            else
+            {
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
+            }
+            
+
+            //if goal is not entered
+            if(goal == null)
+            {
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, "N/A");
+            }
+            else
+            {
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
+            }
 
             string strFilePath = @"..\..\..\data.json";
             MemberList.Add(newMember);
