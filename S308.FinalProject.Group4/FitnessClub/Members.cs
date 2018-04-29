@@ -22,6 +22,7 @@ namespace FitnessClub
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Gender { get; set; }
+        public string Age { get; set; }
         public string Weight { get; set; }
         public string FitnessGoal { get; set; }
 
@@ -47,6 +48,7 @@ namespace FitnessClub
             Email = email;
             Gender = gender;
             Weight = weight;
+            Age = age;
             FitnessGoal = goal;
 
 

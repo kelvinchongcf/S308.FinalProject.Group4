@@ -60,6 +60,33 @@ namespace FitnessClub
 
         }
 
+        private void ClearForm()
+        {
+            cbbMembershipType.SelectedIndex = -1;
+            dpiStartDate.SelectedDate = DateTime.Today;
+            cboPersonalTraining.IsChecked = false;
+            cboLocker.IsChecked = false;
+            lblShowMembership.Content = "";
+            lblShowAvailability.Content = "";
+            lblCalcCostPerMonth.Content = "";
+            lblShowStartDateAnswer.Content = "";
+            lblShowEndDateAnswer.Content = "";
+            lblCalcSubtotal.Content = "";
+            lblCalcAddCost.Content = "";
+            lblCalcTotalCost.Content = "";
+            txtFirstName.Text = "";
+            txtLastName.Text = "";
+            cbbCreditCardType.SelectedIndex = -1;
+            txtCreditCardNumber.Text = "";
+            txtPhone.Text = "";
+            txtEmail.Text = "";
+            cbbGender.SelectedIndex = -1;
+            txtAge.Text = "";
+            txtWeight.Text = "";
+            cbbPersonalGoal.SelectedIndex = -1;
+            lblPersonalTraining.Content = "No";
+            lblLockerRental.Content = "No";
+        }
         //read membership pricing json file
         private void OpenPricingJson(string FilePath)
         {
@@ -233,14 +260,77 @@ namespace FitnessClub
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         { //Define variables
             bool bolStatus;
+            string strGoal;
+            string strGender;
+           
+            //Validation for inputs
+            //Validation for first name
+            if (txtFirstName.Text == "")
+            {
+                MessageBox.Show("Please enter a first name!");
+                return;
+            }
 
-            //show proper gender
-            int intGenderStartingPosition = cbbGender.SelectedItem.ToString().IndexOf(" ");
-            string strGender = cbbGender.SelectedItem.ToString().Substring(intGenderStartingPosition + 1);
+            //validation for last name
+            if (txtLastName.Text == "")
+            {
+                MessageBox.Show("Please enter a last name!");
+                return;
+            }
 
-            //show proper fitness goal
-            int intGoalStartingPosition = cbbPersonalGoal.SelectedItem.ToString().IndexOf(" ");
-            string strGoal = cbbPersonalGoal.SelectedItem.ToString().Substring(intGoalStartingPosition + 1);
+            //validation for credit card type
+            if (cbbCreditCardType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a credit card type!");
+                return;
+            }
+            //validation for credit card number
+            if (txtCreditCardNumber.Text == "")
+            {
+                MessageBox.Show("Please enter a credit card number!");
+                return;
+            }
+            //validation for phone number
+            if (txtPhone.Text.Length != 10)
+            {
+                MessageBox.Show("Please enter a valid 10-digit phone number!");
+                return;
+            }
+
+            long lngPhoneNumber;
+            if (!Int64.TryParse(txtPhone.Text, out lngPhoneNumber))
+            {
+                MessageBox.Show("Phone number should only contain numbers!");
+                return;
+            }
+            //validation for email
+            if (txtEmail.Text == "")
+            {
+                MessageBox.Show("Please enter an email address!");
+                return;
+            }
+            //validation for gender
+            if (cbbGender.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an option for gender!");
+                return;
+            }
+            else
+            {
+                //show proper format gender
+                int intGenderStartingPosition = cbbGender.SelectedItem.ToString().IndexOf(" ");
+                strGender = cbbGender.SelectedItem.ToString().Substring(intGenderStartingPosition + 1);
+            }
+
+            if (cbbPersonalGoal.SelectedIndex != -1)
+            {
+                //show proper format fitness goal
+                int intGoalStartingPosition = cbbPersonalGoal.SelectedItem.ToString().IndexOf(" ");
+                strGoal = cbbPersonalGoal.SelectedItem.ToString().Substring(intGoalStartingPosition + 1);
+            }
+            else
+                strGoal = "N/A";
+           
 
             //Call AddMember method and passing all needed inputs
             //The method will return a bool type as the status of Add operation
@@ -258,70 +348,24 @@ namespace FitnessClub
         {
             //Define variables
             Member newMember;
+            string strGoal;
 
             //show proper gender
             int intGenderStartingPosition = cbbGender.SelectedItem.ToString().IndexOf(" ");
             string strGender = cbbGender.SelectedItem.ToString().Substring(intGenderStartingPosition + 1);
 
-            //show proper fitness goal
-            int intGoalStartingPosition = cbbPersonalGoal.SelectedItem.ToString().IndexOf(" ");
-            string strGoal = cbbPersonalGoal.SelectedItem.ToString().Substring(intGoalStartingPosition + 1);
+            if (cbbPersonalGoal.SelectedIndex != -1)
+            {
+                //show proper format fitness goal
+                int intGoalStartingPosition = cbbPersonalGoal.SelectedItem.ToString().IndexOf(" ");
+                strGoal = cbbPersonalGoal.SelectedItem.ToString().Substring(intGoalStartingPosition + 1);
+            }
+            else
+                strGoal = "";
 
-            //Validation for inputs
-            //Validation for first name
-            if (txtFirstName.Text == "")
-            {
-            MessageBox.Show("Please enter a first name!");
-            return false;
-            }
-
-            //validation for last name
-            if(txtLastName.Text == "")
-            {
-            MessageBox.Show("Please enter a last name!");
-            return false;
-            }
-
-            //validation for credit card type
-            if(cbbCreditCardType.SelectedIndex == -1)
-            {
-            MessageBox.Show("Please select a credit card type!");
-            return false;
-            }
-            //validation for credit card number
-            if(txtCreditCardNumber.Text == "")
-            {
-            MessageBox.Show("Please enter a credit card number!");
-            return false;
-            }
-            //validation for phone number
-            if(txtPhone.Text.Length != 10)
-            {
-            MessageBox.Show("Please enter a valid 10-digit phone number!");
-            return false;
-            }
-
-            int intPhoneNumber;
-            if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
-            {
-            MessageBox.Show("Phone number should only contain numbers!");
-            return false;
-            }
-            //validation for email
-            if(txtEmail.Text == "")
-            {
-            MessageBox.Show("Please enter an email address!");
-            return false;
-            }
-            //validation for gender
-            if (cbbGender.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select an option for gender!");
-                return false;
-            }
 
             //if Age is not entered
-                     string strAge = txtAge.Text;
+            string strAge = txtAge.Text;
                      string strWeight = txtWeight.Text;
 
                      if (strAge == "" && strWeight == "" && goal == null)
@@ -330,35 +374,38 @@ namespace FitnessClub
                      }
                      else if(strAge == "" && strWeight =="")
                      {
-                         newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), "N/A", "N/A", goal.ToString());
+                         newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, strGender, "N/A", "N/A", strGoal);
                      }
                      else if(strAge == "" && goal == null)
             {
-                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), "N/A", weight, "N/A");
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, strGender, "N/A", weight, "N/A");
             }
                      else if(strWeight == "" && goal == null)
             {
-                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, "N/A", "N/A");
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, strGender, age, "N/A", "N/A");
             }
                      else if(strAge == "")
             {
-                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), "N/A", weight, goal.ToString());
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, strGender, "N/A", weight, strGoal);
             }
                      else if(strWeight == "")
             {
-                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, "N/A", goal.ToString());
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, strGender, age, "N/A", strGoal);
             }
                      else if(goal == null)
             {
-                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, "N/A");
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, strGender, age, weight, "N/A");
             }
                      else
             {
-                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, strGender, age, weight, strGoal);
             }
 
-            
-
+            if (Convert.ToString(lblShowAvailability.Content) == "No")
+            {
+                MessageBox.Show("The selected membership type is current unavailable, please select another membership!");
+                return false;
+            }
             string strFilePath = @"..\..\..\data.json";
             MemberList.Add(newMember);
 
@@ -389,6 +436,9 @@ namespace FitnessClub
             {
                 MessageBox.Show("Error in adding member");
             }
+
+            ClearForm();
+
             return true;
       }
           
