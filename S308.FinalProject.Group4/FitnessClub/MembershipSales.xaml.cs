@@ -234,9 +234,17 @@ namespace FitnessClub
         { //Define variables
             bool bolStatus;
 
+            //show proper gender
+            int intGenderStartingPosition = cbbGender.SelectedItem.ToString().IndexOf(" ");
+            string strGender = cbbGender.SelectedItem.ToString().Substring(intGenderStartingPosition + 1);
+
+            //show proper fitness goal
+            int intGoalStartingPosition = cbbPersonalGoal.SelectedItem.ToString().IndexOf(" ");
+            string strGoal = cbbPersonalGoal.SelectedItem.ToString().Substring(intGoalStartingPosition + 1);
+
             //Call AddMember method and passing all needed inputs
             //The method will return a bool type as the status of Add operation
-            bolStatus = bolStatus = AddMember(Convert.ToString(lblShowMembership.Content), dpiStartDate.Text, Convert.ToString(lblShowEndDateAnswer.Content), Convert.ToString(lblCalcCostPerMonth.Content), Convert.ToString(lblCalcSubtotal.Content), Convert.ToString(lblPersonalTraining.Content), Convert.ToString(lblLockerRental.Content), Convert.ToString(lblCalcTotalCost.Content), txtFirstName.Text, txtLastName.Text, txtPhone.Text, txtEmail.Text, cbbGender.SelectedItem , txtAge.Text, txtWeight.Text, cbbPersonalGoal.SelectedItem);
+            bolStatus = bolStatus = AddMember(Convert.ToString(lblShowMembership.Content), dpiStartDate.Text, Convert.ToString(lblShowEndDateAnswer.Content), Convert.ToString(lblCalcCostPerMonth.Content), Convert.ToString(lblCalcSubtotal.Content), Convert.ToString(lblPersonalTraining.Content), Convert.ToString(lblLockerRental.Content), Convert.ToString(lblCalcTotalCost.Content), txtFirstName.Text, txtLastName.Text, txtPhone.Text, txtEmail.Text, strGender , txtAge.Text, txtWeight.Text, strGoal);
 
             //If the member is added successfully, display message to user
             if (bolStatus)
@@ -246,14 +254,22 @@ namespace FitnessClub
 
         }
 
-        private bool AddMember(string mType, string sDate, string eDate, string CostpMonth, string subtotal, string personalt, string locker, string total, string firstName, string lastName, string phone, string email, object gender, string age, string weight, object goal)
+        private bool AddMember(string mType, string sDate, string eDate, string CostpMonth, string subtotal, string personalt, string locker, string total, string firstName, string lastName, string phone, string email, string gender, string age, string weight, object goal)
         {
             //Define variables
             Member newMember;
 
+            //show proper gender
+            int intGenderStartingPosition = cbbGender.SelectedItem.ToString().IndexOf(" ");
+            string strGender = cbbGender.SelectedItem.ToString().Substring(intGenderStartingPosition + 1);
+
+            //show proper fitness goal
+            int intGoalStartingPosition = cbbPersonalGoal.SelectedItem.ToString().IndexOf(" ");
+            string strGoal = cbbPersonalGoal.SelectedItem.ToString().Substring(intGoalStartingPosition + 1);
+
             //Validation for inputs
             //Validation for first name
-            if(txtFirstName.Text == "")
+            if (txtFirstName.Text == "")
             {
             MessageBox.Show("Please enter a first name!");
             return false;
@@ -300,49 +316,48 @@ namespace FitnessClub
             //validation for gender
             if (cbbGender.SelectedIndex == -1)
             {
-            MessageBox.Show("Please select an option for gender!");
-            return false;
-            }
-
-            //validate to not allow user to sell unavailable membership
-            string strAvailability = lblShowAvailability.Content.ToString();
-            if(strAvailability == "No")
-            {
-                MessageBox.Show("The selected membershiptype is not available, please select another membership!");
+                MessageBox.Show("Please select an option for gender!");
+                return false;
             }
 
             //if Age is not entered
-            string strAge = txtAge.Text;
-            if(strAge == "")
+                     string strAge = txtAge.Text;
+                     string strWeight = txtWeight.Text;
+
+                     if (strAge == "" && strWeight == "" && goal == null)
+                     {
+                         newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, strGender, "N/A", "N/A", "N/A");
+                     }
+                     else if(strAge == "" && strWeight =="")
+                     {
+                         newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), "N/A", "N/A", goal.ToString());
+                     }
+                     else if(strAge == "" && goal == null)
+            {
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), "N/A", weight, "N/A");
+            }
+                     else if(strWeight == "" && goal == null)
+            {
+                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, "N/A", "N/A");
+            }
+                     else if(strAge == "")
             {
                 newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), "N/A", weight, goal.ToString());
             }
-            else
-            {
-                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
-            }
-
-            //if weight is not entered
-            string strWeight = txtWeight.Text;
-            if(strWeight == "")
+                     else if(strWeight == "")
             {
                 newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, "N/A", goal.ToString());
             }
-            else
-            {
-                newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
-            }
-            
-
-            //if goal is not entered
-            if(goal == null)
+                     else if(goal == null)
             {
                 newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, "N/A");
             }
-            else
+                     else
             {
                 newMember = new Member(mType, sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
             }
+
+            
 
             string strFilePath = @"..\..\..\data.json";
             MemberList.Add(newMember);
@@ -351,7 +366,24 @@ namespace FitnessClub
             {
                 string jsonData = JsonConvert.SerializeObject(MemberList);
                 System.IO.File.WriteAllText(strFilePath, jsonData);
-                MessageBox.Show("Member successfully added!");
+                MessageBox.Show("Member successfully added!" + Environment.NewLine + 
+                    "Membership Type: " + lblShowMembership.Content + Environment.NewLine +
+                    "Membership Cost Per Month: " + lblCalcCostPerMonth.Content + Environment.NewLine +
+                    "Start Date: " + lblShowStartDateAnswer.Content + Environment.NewLine + 
+                    "End Date: " + lblShowEndDateAnswer.Content + Environment.NewLine + 
+                    "Subtotal: " + lblShowMembership.Content + Environment.NewLine +
+                    "Personal Training Plan: " + lblPersonalTraining.Content + Environment.NewLine +
+                    "Locker Rental: " + lblLockerRental.Content + Environment.NewLine +
+                    "Total Cost: " + lblCalcTotalCost.Content + Environment.NewLine +
+                    "First Name: " + txtFirstName.Text + Environment.NewLine +
+                    "Last Name: " + txtLastName.Text + Environment.NewLine +
+                    "Phone: " + txtPhone.Text + Environment.NewLine +
+                    "Email: " + txtEmail.Text + Environment.NewLine +
+                    "Gender: " + strGender + Environment.NewLine +
+                    "Age: " + txtAge.Text + Environment.NewLine +
+                    "Weight: " + txtWeight.Text + Environment.NewLine +
+                    "Fitness Goal: " +strGoal + Environment.NewLine
+                    );
             }
             catch (Exception ex)
             {
