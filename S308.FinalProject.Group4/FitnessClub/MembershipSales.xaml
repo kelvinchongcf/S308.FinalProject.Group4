@@ -65,9 +65,9 @@
         </ComboBox>
         <ComboBox x:Name="cbbCreditCardType" HorizontalAlignment="Left" Margin="673,139,0,0" VerticalAlignment="Top" Width="196" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New" >
             <ComboBoxItem Content="Visa" Background="#00000000"/>
-            <Button Content="Mastercard" Background="#00000000" BorderBrush="Transparent"/>
-            <Button Content="Discover" Background="Transparent" BorderBrush="Transparent"/>
-            <Button Content="American Express" Background="Transparent" BorderBrush="Transparent"/>
+            <Button Content="Mastercard" Background="#00000000" BorderBrush="#00000000"/>
+            <Button Content="Discover" Background="#00000000" BorderBrush="Transparent"/>
+            <Button Content="American Express" Background="#00000000" BorderBrush="Transparent"/>
         </ComboBox>
         <Label x:Name="lblSubtotalCost" Content="Subtotal" HorizontalAlignment="Left" Margin="20,409,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblCalcSubtotal" Content="" HorizontalAlignment="Left" Margin="265,412,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="77"/>
