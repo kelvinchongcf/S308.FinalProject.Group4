@@ -28,7 +28,7 @@
         <RadioButton x:Name="rdbYesAvailability" Content="Yes" Grid.Column="1" HorizontalAlignment="Left" Margin="132,201,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="16" Foreground="#FFFBFBFB" Background="#FF0E0E0E" TabIndex="4" IsChecked="True" OpacityMask="Black"/>
         <RadioButton x:Name="rdbNoAvailability" Content="No" Grid.Column="1" HorizontalAlignment="Left" Margin="190,201,0,0" VerticalAlignment="Top" FontFamily="Courier New" FontSize="16" Foreground="White" TabIndex="5" Background="Black"/>
         <Button x:Name="btnSaveChanges" Content="Save Changes" HorizontalAlignment="Left" Margin="178,230,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black" Grid.ColumnSpan="2" TabIndex="6" Click="btnSaveChanges_Click"/>
-        <Button x:Name="btnHomeFromPM" Content="Dashboard" HorizontalAlignment="Left" Margin="103,6,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black" Grid.Column="1" TabIndex="6" Click="btnHomeFromPM_Click"/>
+        <Button x:Name="btnHomeFromPM" Content="Dashboard" HorizontalAlignment="Left" Margin="103,6,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Foreground="Black" Grid.Column="1" TabIndex="7" Click="btnHomeFromPM_Click"/>
         <Button x:Name="btnSearchInfo" Grid.ColumnSpan="2" Content="Search" HorizontalAlignment="Left" Height="25" Margin="178,114,0,0" VerticalAlignment="Top" Width="133" FontFamily="Courier New" FontSize="16" Click="btnSearchInfo_Click" TabIndex="2"/>
 
     </Grid>
