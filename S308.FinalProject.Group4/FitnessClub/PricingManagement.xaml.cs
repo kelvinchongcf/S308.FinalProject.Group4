@@ -78,6 +78,28 @@ namespace FitnessClub
             }
 
 
+            string SelectedItem;
+            double ChangedPrice;
+            SelectedItem = cbxMembershipType.SelectedValue.ToString().Substring(cbxMembershipType.SelectedValue.ToString().IndexOf(":") + 1).Trim();
+            ChangedPrice = Convert.ToDouble(txtNewPriceValue.Text);
+            foreach (var s in pricingList)
+            {
+                if (s.MembershipType == SelectedItem)
+                {
+                    s.Price = ChangedPrice;
+                    
+                    if(rdbYesAvailability.IsChecked == true)
+                    {
+                        s.Availability = "Yes";
+                    }
+
+                    else if(rdbNoAvailability.IsChecked == false)
+                    {
+                        s.Availability = "No";
+                    }
+                }
+            }
+
 
         }
 
