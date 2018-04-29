@@ -207,7 +207,7 @@ namespace FitnessClub
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             //Do validations on input here! (NOT YET DONE)
             //Load text file into list
             string strFilePath1 = @"..\..\..\data.json";
@@ -226,8 +226,8 @@ namespace FitnessClub
                 MessageBox.Show("Data import failed: " + ex.Message);
             }
             //Create a new class for new member ( NOT FINISHED ) Add more into the variables I don't have access to. (Willy)
-            Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(), lblShowStartDateAnswer.Content, lblCalcCostPerMonth.Content,
-                lblCalcSubtotal.Content,,, lblCalcTotalCost.Content, txtFirstName.Text, txtLastName.Text,
+            Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(), Convert.ToString(dpiStartDate), lblCalcCostPerMonth.Content,
+                lblCalcSubtotal.Content, cboPersonalTraining,cboLocker, lblCalcTotalCost.Content, txtFirstName.Text, txtLastName.Text,
                 Convert.ToInt32(txtPhone.Text),txtEmail.Text,cbbGender.SelectedIndex.ToString(),
                 Convert.ToInt32(txtAge.Text),Convert.ToDouble(txtWeight.Text),cbbPersonalGoal.SelectedIndex.ToString());
             
@@ -252,62 +252,65 @@ namespace FitnessClub
 
 
         }
-        /*//Validation for inputs
-        //Validation for first name
-        if(txtFirstName.Text == "")
-        {
-            MessageBox.Show("Please enter a first name!");
-            return;
-        }
+            /*//Validation for inputs
+            //Validation for first name
+            if(txtFirstName.Text == "")
+            {
+                MessageBox.Show("Please enter a first name!");
+                return;
+            }
 
-        //validation for last name
-        if(txtLastName.Text == "")
-        {
-            MessageBox.Show("Please enter a last name!");
-            return;
-        }
+            //validation for last name
+            if(txtLastName.Text == "")
+            {
+                MessageBox.Show("Please enter a last name!");
+                return;
+            }
 
-        //validation for credit card type
-        if(cbbCreditCardType.SelectedIndex == -1)
-        {
-            MessageBox.Show("Please select a credit card type!");
-            return;
-        }
-        //validation for credit card number
-        if(txtCreditCardNumber.Text == "")
-        {
-            MessageBox.Show("Please enter a credit card number!");
-            return;
-        }
-        //validation for phone number
-        if(txtPhone.Text.Length != 10)
-        {
-            MessageBox.Show("Please enter a valid 10-digit phone number!");
-            return;
-        }
+            //validation for credit card type
+            if(cbbCreditCardType.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a credit card type!");
+                return;
+            }
+            //validation for credit card number
+            if(txtCreditCardNumber.Text == "")
+            {
+                MessageBox.Show("Please enter a credit card number!");
+                return;
+            }
+            //validation for phone number
+            if(txtPhone.Text.Length != 10)
+            {
+                MessageBox.Show("Please enter a valid 10-digit phone number!");
+                return;
+            }
 
-        int intPhoneNumber;
-        if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
-        {
-            MessageBox.Show("Phone number should only contain numbers!");
-            return;
-        }
-        //validation for email
-        if(txtEmail.Text == "")
-        {
-            MessageBox.Show("Please enter an email address!");
-            return;
-        }
-        //validation for gender
-        if (cbbGender.SelectedIndex == -1)
-        {
-            MessageBox.Show("Please select an option for gender!");
-            return;
-        }
-        */
+            int intPhoneNumber;
+            if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
+            {
+                MessageBox.Show("Phone number should only contain numbers!");
+                return;
+            }
+            //validation for email
+            if(txtEmail.Text == "")
+            {
+                MessageBox.Show("Please enter an email address!");
+                return;
+            }
+            //validation for gender
+            if (cbbGender.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an option for gender!");
+                return;
+            }
+            */
+
+           
+            
+
+
         
-
-
-    }
     } 
+}
     
