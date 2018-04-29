@@ -10,10 +10,10 @@
         <Label x:Name="lblLastNameSearch" Content="Search by Last Name:" HorizontalAlignment="Left" Margin="7,111,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="13.333" FontFamily="Courier New" Width="186" HorizontalContentAlignment="Right"/>
         <Label x:Name="lblPhoneSearch" Content="Search by Phone Number:" HorizontalAlignment="Left" Margin="7,142,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="13.333" FontFamily="Courier New" HorizontalContentAlignment="Right"/>
         <Label x:Name="lblEmailSearch" Content="Search by e-Mail:" HorizontalAlignment="Left" Margin="7,173,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="13.333" FontFamily="Courier New" Width="186" HorizontalContentAlignment="Right"/>
-        <TextBox x:Name="txtLastNameSearch" HorizontalAlignment="Left" Height="23" Margin="198,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>
-        <TextBox x:Name="txtPhoneSearch" HorizontalAlignment="Left" Height="23" Margin="198,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>
-        <TextBox x:Name="txtEmailSearch" HorizontalAlignment="Left" Height="23" Margin="198,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116"/>
-        <Button x:Name="btnSearchMemberInfo" Content="Search" HorizontalAlignment="Left" Height="22" Margin="105,214,0,0" VerticalAlignment="Top" Width="133" Click="button_Click" FontFamily="Courier New" FontSize="16"/>
+        <TextBox x:Name="txtLastNameSearch" HorizontalAlignment="Left" Height="23" Margin="198,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" TabIndex="0"/>
+        <TextBox x:Name="txtPhoneSearch" HorizontalAlignment="Left" Height="23" Margin="198,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" TabIndex="1"/>
+        <TextBox x:Name="txtEmailSearch" HorizontalAlignment="Left" Height="23" Margin="198,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="116" TabIndex="2"/>
+        <Button x:Name="btnSearchMemberInfo" Content="Search" HorizontalAlignment="Left" Height="22" Margin="105,214,0,0" VerticalAlignment="Top" Width="133" Click="button_Click" FontFamily="Courier New" FontSize="16" TabIndex="3"/>
         <Image x:Name="imgNameMembersInfo" HorizontalAlignment="Left" Height="33" Margin="12,57,0,0" VerticalAlignment="Top" Width="130" Source="Images/Power Fitness.png" Stretch="UniformToFill"/>
         <Image x:Name="imgLogoMembersInfo" HorizontalAlignment="Left" Height="56" Margin="25,13,0,0" VerticalAlignment="Top" Width="117" Source="Images/PowerFitnessLogo.png" Stretch="UniformToFill"/>
         <Label x:Name="lblMembersInformationSystem" Content="Members Information System" HorizontalAlignment="Left" Margin="186,22,0,0" VerticalAlignment="Top" Height="47" Width="367" FontFamily="Courier New" FontSize="21.333" Foreground="White" FontWeight="Bold"/>
