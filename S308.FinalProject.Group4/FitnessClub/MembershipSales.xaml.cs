@@ -211,6 +211,7 @@ namespace FitnessClub
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
         {
+          /* 
             //Do validations on input here! (NOT YET DONE)
             //Load text file into list
             string strFilePath1 = @"..\..\..\data.json";
@@ -253,7 +254,7 @@ namespace FitnessClub
             //Senbd notification of saved file and the filepath of new file
             MessageBox.Show("Export is successful." + Environment.NewLine + "File Created: " + strFilePath1);
 
-
+*/
         }
         /*//Validation for inputs
         //Validation for first name
