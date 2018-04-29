@@ -22,14 +22,26 @@ namespace FitnessClub
     /// </summary>
     public partial class MemberInformation : Window
     {
-        List<Member> memList, queryList;
+        List<Member> MemberList, queryList;
         public MemberInformation()
         {
             InitializeComponent();
-            memList = new List<Member>();
+            MemberList = new List<Member>();
             queryList = new List<Member>();
 
-            dtgMemInfo.ItemsSource = memList;
+            dtgMemInfo.ItemsSource = MemberList;
+        }
+        private bool isValidEmail(string email)
+        {
+            try
+            {
+                var address = new System.Net.Mail.MailAddress(email);
+                return address.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -54,7 +66,7 @@ namespace FitnessClub
             if (txtEmailSearch.Text.Length != 0)
             {
                 //Using functions to make sure it's a valid email format
- //               if (isValidEmail(txtEmailSearch.Text.Trim()) == false)
+                if (isValidEmail(txtEmailSearch.Text.Trim()) == false)
                 {
                     MessageBox.Show("Email is invalid.");
                     return;
@@ -68,7 +80,7 @@ namespace FitnessClub
                 string jsonData = reader.ReadToEnd();
                 reader.Close();
 
-//                memList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
+                MemberList = JsonConvert.DeserializeObject<List<Member>>(jsonData);
 
             }
             catch(Exception ex)
@@ -79,42 +91,42 @@ namespace FitnessClub
             //All criterias being used
             if (txtLastNameSearch.Text.Length != 0 && txtEmailSearch.Text.Length != 0 && txtPhoneSearch.Text.Length != 0)
             {
-//                queryList = memList.FindAll(searchLastName);
- //               queryList = queryList.FindAll(searchEmail);
-  //              queryList = queryList.FindAll(searchPhone);
+                queryList = MemberList.FindAll(searchLastName);
+                queryList = queryList.FindAll(searchEmail);
+                queryList = queryList.FindAll(searchPhone);
             }
             //Only last name as criteria
             else if (txtLastNameSearch.Text.Length != 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length == 0)
             {
- //               queryList = memList.FindAll(searchLastName);
+                queryList = MemberList.FindAll(searchLastName);
             }
             //Only email as criteria
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length != 0 && txtPhoneSearch.Text.Length == 0)
             {
-//                queryList = memList.FindAll(searchEmail);
+                queryList = MemberList.FindAll(searchEmail);
             }
             //Only use phone number as criteria
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length != 0)
             {
-//                queryList = memList.FindAll(searchPhone);
+                queryList = MemberList.FindAll(searchPhone);
             }
             //Use both email and phone as criteias
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length != 0 && txtPhoneSearch.Text.Length != 0)
             {
- //               queryList = memList.FindAll(searchEmail);
- //               queryList = queryList.FindAll(searchPhone);
+                queryList = MemberList.FindAll(searchEmail);
+                queryList = queryList.FindAll(searchPhone);
             }
             //Use both last name and phone as criterias
             else if (txtLastNameSearch.Text.Length != 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length != 0)
             {
- //               queryList = memList.FindAll(searchLastName);
-  //              queryList = queryList.FindAll(searchPhone);
+                queryList = MemberList.FindAll(searchLastName);
+                queryList = queryList.FindAll(searchPhone);
             }
             //Use both last name and email as criterias
             else if (txtLastNameSearch.Text.Length != 0 && txtEmailSearch.Text.Length != 0 && txtPhoneSearch.Text.Length == 0)
             {
-  //              queryList = memList.FindAll(searchLastName);
-  //              queryList = queryList.FindAll(searchEmail);
+                queryList = MemberList.FindAll(searchLastName);
+                queryList = queryList.FindAll(searchEmail);
             }
             //If criteria is empty return everything in the list
             else if (txtLastNameSearch.Text.Length == 0 && txtEmailSearch.Text.Length == 0 && txtPhoneSearch.Text.Length == 0)
@@ -163,12 +175,12 @@ namespace FitnessClub
         //find phone
         private bool searchPhone(Member m)
         {
-            //         if (m.PhoneNo == Convert.ToDouble(txtPhoneSearch.Text))
+                     if (m.Phone == txtPhoneSearch.Text)
             {
                 return true;
-            } }
- //           else
- //               return false;
+            } 
+            else
+                return false;
         }
 
    //     private void btnHomeFromPM_Click_1(object sender, RoutedEventArgs e)
@@ -178,19 +190,7 @@ namespace FitnessClub
         }
     
 
- /*       //function to check validity of email
-        private bool isValidEmail(string email)
-        {
-            try
-            {
-                var address = new System.Net.Mail.MailAddress(email);
-                return address.Address == email;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+        //function to check validity of email
+        
 
     }
-}*/

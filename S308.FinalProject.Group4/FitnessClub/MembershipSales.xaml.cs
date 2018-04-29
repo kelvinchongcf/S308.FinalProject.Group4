@@ -391,50 +391,7 @@ namespace FitnessClub
             }
             return true;
       }
-          /* 
-            //Do validations on input here! (NOT YET DONE)
-            //Load text file into list
-            string strFilePath1 = @"..\..\..\data.json";
-
-            try
-            {
-                StreamReader reader = new StreamReader(strFilePath1);
-                string jsonData = reader.ReadToEnd();
-                reader.Close();
-
-                memList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Data import failed: " + ex.Message);
-            }
-            //Create a new class for new member ( NOT FINISHED ) Add more into the variables I don't have access to. (Willy)
-            Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(), dpiStartDate.SelectedDate, Convert.ToDouble(lblCalcCostPerMonth.Content),
-                Convert.ToDouble(lblCalcSubtotal.Content),cboPersonalTraining,cboLocker, Convert.ToDouble(lblCalcTotalCost.Content), txtFirstName.Text, txtLastName.Text,
-                Convert.ToInt32(txtPhone.Text), txtEmail.Text, cbbGender.SelectedIndex.ToString(),
-                Convert.ToInt32(txtAge.Text), Convert.ToDouble(txtWeight.Text), cbbPersonalGoal.SelectedIndex.ToString());
-
-            // add it to list of members
-            memList.Add(NewMem);
-            //Overwrite json file with new list
-
-            try
-            {
-                StreamWriter writer = new StreamWriter(strFilePath1, false);
-                string jsonData = JsonConvert.SerializeObject(memList);
-                writer.Write(jsonData);
-                writer.Close();
-            }
-            //send error message if error occurs
-            catch (Exception ex)
-            {
-                MessageBox.Show("Export Failed: " + ex.Message);
-            }
-            //Senbd notification of saved file and the filepath of new file
-            MessageBox.Show("Export is successful." + Environment.NewLine + "File Created: " + strFilePath1);
-
-*/
+          
         }
 
 
