@@ -23,11 +23,13 @@ namespace FitnessClub
     {
         List<Pricing> pricingList;
         List<Members> memberList;
+        List<Members> memList;
         public MembershipSales()
         {
             InitializeComponent();
             pricingList = new List<Pricing>();
             memberList = new List<Members>();
+            memList = new List<Members>();
             ImportPricingData();
 
             //Input area disabled until quote preview
@@ -205,67 +207,107 @@ namespace FitnessClub
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
-        { 
-        }
-            /*//Validation for inputs
-            //Validation for first name
-            if(txtFirstName.Text == "")
-            {
-                MessageBox.Show("Please enter a first name!");
-                return;
-            }
+        {
+            //Do validations on input here! (NOT YET DONE)
+            //Load text file into list
+            string strFilePath1 = @"..\..\..\data.json";
 
-            //validation for last name
-            if(txtLastName.Text == "")
+            try
             {
-                MessageBox.Show("Please enter a last name!");
-                return;
-            }
+                StreamReader reader = new StreamReader(strFilePath1);
+                string jsonData = reader.ReadToEnd();
+                reader.Close();
 
-            //validation for credit card type
-            if(cbbCreditCardType.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a credit card type!");
-                return;
-            }
-            //validation for credit card number
-            if(txtCreditCardNumber.Text == "")
-            {
-                MessageBox.Show("Please enter a credit card number!");
-                return;
-            }
-            //validation for phone number
-            if(txtPhone.Text.Length != 10)
-            {
-                MessageBox.Show("Please enter a valid 10-digit phone number!");
-                return;
-            }
+                memList = JsonConvert.DeserializeObject<List<Members>>(jsonData);
 
-            int intPhoneNumber;
-            if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
-            {
-                MessageBox.Show("Phone number should only contain numbers!");
-                return;
             }
-            //validation for email
-            if(txtEmail.Text == "")
+            catch (Exception ex)
             {
-                MessageBox.Show("Please enter an email address!");
-                return;
+                MessageBox.Show("Data import failed: " + ex.Message);
             }
-            //validation for gender
-            if (cbbGender.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select an option for gender!");
-                return;
-            }
-            */
-
-           
+            //Create a new class for new member ( NOT FINISHED ) Add more into the variables I don't have access to. (Willy)
+            Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(), lblShowStartDateAnswer.Content, lblCalcCostPerMonth.Content,
+                lblCalcSubtotal.Content,,, lblCalcTotalCost.Content, txtFirstName.Text, txtLastName.Text,
+                Convert.ToInt32(txtPhone.Text),txtEmail.Text,cbbGender.SelectedIndex.ToString(),
+                Convert.ToInt32(txtAge.Text),Convert.ToDouble(txtWeight.Text),cbbPersonalGoal.SelectedIndex.ToString());
             
+            // add it to list of members
+            memList.Add(NewMem);
+            //Overwrite json file with new list
+
+            try
+            {
+                StreamWriter writer = new StreamWriter(strFilePath1, false);
+                string jsonData = JsonConvert.SerializeObject(memList);
+                writer.Write(jsonData);
+                writer.Close();
+            }
+            //send error message if error occurs
+            catch (Exception ex)
+            {
+                MessageBox.Show("Export Failed: " + ex.Message);
+            }
+            //Senbd notification of saved file and the filepath of new file
+            MessageBox.Show("Export is successful." + Environment.NewLine + "File Created: " + strFilePath1);
 
 
+        }
+        /*//Validation for inputs
+        //Validation for first name
+        if(txtFirstName.Text == "")
+        {
+            MessageBox.Show("Please enter a first name!");
+            return;
+        }
+
+        //validation for last name
+        if(txtLastName.Text == "")
+        {
+            MessageBox.Show("Please enter a last name!");
+            return;
+        }
+
+        //validation for credit card type
+        if(cbbCreditCardType.SelectedIndex == -1)
+        {
+            MessageBox.Show("Please select a credit card type!");
+            return;
+        }
+        //validation for credit card number
+        if(txtCreditCardNumber.Text == "")
+        {
+            MessageBox.Show("Please enter a credit card number!");
+            return;
+        }
+        //validation for phone number
+        if(txtPhone.Text.Length != 10)
+        {
+            MessageBox.Show("Please enter a valid 10-digit phone number!");
+            return;
+        }
+
+        int intPhoneNumber;
+        if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
+        {
+            MessageBox.Show("Phone number should only contain numbers!");
+            return;
+        }
+        //validation for email
+        if(txtEmail.Text == "")
+        {
+            MessageBox.Show("Please enter an email address!");
+            return;
+        }
+        //validation for gender
+        if (cbbGender.SelectedIndex == -1)
+        {
+            MessageBox.Show("Please select an option for gender!");
+            return;
+        }
+        */
         
+
+
+    }
     } 
-}
     
