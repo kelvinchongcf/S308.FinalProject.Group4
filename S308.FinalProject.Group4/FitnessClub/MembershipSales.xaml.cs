@@ -21,16 +21,26 @@ namespace FitnessClub
     /// </summary>
     public partial class MembershipSales : Window
     {
-        List<Pricing> pricingList;
-        List<Members> memberList;
-        List<Members> memList;
+        string strFilePath = @"..\..\..\MembershipPricing.json";
+        //define lists to contain subitems
+        List<Pricing> TypeList;
+        List<Member> MemberList;
+        
         public MembershipSales()
         {
             InitializeComponent();
-            pricingList = new List<Pricing>();
-            memberList = new List<Members>();
-            memList = new List<Members>();
-            ImportPricingData();
+            //create a list to store membership type data
+            TypeList = new List<Pricing>();
+            //create a list to store member data
+            MemberList = new List<Member>();
+            //make membership combo box default to empty
+            cbbMembershipType.SelectedIndex = -1;
+            cboPersonalTraining.IsChecked = false;
+            cboLocker.IsChecked = false;
+
+            
+
+            
 
             //Input area disabled until quote preview
             txtFirstName.IsEnabled = false;
@@ -44,36 +54,33 @@ namespace FitnessClub
             txtWeight.IsEnabled = false;
             cbbPersonalGoal.IsEnabled = false;
 
-            //define variables
+            
             
 
         }
 
-        //Load membership type from json file to combobox
-        private void ImportPricingData()
+        //read membership pricing json file
+        private void OpenPricingJson(string FilePath)
         {
-            string strFilePath = @"..\..\..\MembershipPricing.json";
-
+            string jsonData = File.ReadAllText(FilePath);
+            TypeList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
+        }
+        //import member list
+        private void ImportMemberData()
+        {
+            string strFilePath = @"..\..\..\data.json";
             try
             {
                 string jsonData = File.ReadAllText(strFilePath);
-
-                pricingList = JsonConvert.DeserializeObject<List<Pricing>>(jsonData);
-
-                foreach (var s in pricingList)
-                {
-                    ComboBoxItem item = new ComboBoxItem();
-                    item.Name = "cbi" + s.MembershipType.Substring(0, s.MembershipType.IndexOf(" ")) + s.MembershipType.Substring(s.MembershipType.IndexOf(" ") + 1, 2).Trim();
-                    item.Content = s.MembershipType;
-                    cbbMembershipType.Items.Add(item);
-                }
+                MemberList = JsonConvert.DeserializeObject<List<Member>>(jsonData);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error in importing Membership Pricing: " + ex.Message);
+                MessageBox.Show("Error in importing members' data!");
             }
         }
-
+ 
+        
 
         private void btnHomeFromPM_Click(object sender, RoutedEventArgs e)
         {//When clicked, navigate to destination page, closing the current page
@@ -82,7 +89,7 @@ namespace FitnessClub
         }
 
         private void btnQuote_Click(object sender, RoutedEventArgs e)
-        {//Validation membership type is required
+        { //Validation membership type is required
             if (cbbMembershipType.SelectedIndex == -1)
             {
                 MessageBox.Show("You must select a membership type!");
@@ -103,6 +110,24 @@ namespace FitnessClub
                 MessageBox.Show("Start date must be later than today's date!");
                 return;
             }
+            //assign values to strMemberType as users click different membership
+            string strMemberType = "";
+            ComboBoxItem cboMembershipSelected = (ComboBoxItem)cbbMembershipType.SelectedItem;
+            strMemberType = cboMembershipSelected.Content.ToString();
+            //open json file
+            OpenPricingJson(strFilePath);
+            //assgin availability and cost per month
+            foreach (Pricing P in TypeList)
+            {
+                if(P.MembershipType == strMemberType)
+                {
+                    lblShowMembership.Content = P.MembershipType;
+                    lblShowAvailability.Content = P.Availability;
+                    lblCalcCostPerMonth.Content = P.Price;
+                }
+            }
+            
+
 
             //Calculation for quote price
             //declare variables to hold calculated values
@@ -116,37 +141,12 @@ namespace FitnessClub
             double dblAddPTP;
             double dblAddLR;
 
-            //Calculation for MembershipType
-            if (cbbMembershipType.SelectedIndex == 0)
+            //change cost per month from text to double
+            if (!double.TryParse(Convert.ToString(lblCalcCostPerMonth.Content), out dblMembershipCostPerMonth))
             {
-                dblMembershipPrice = 9.99;
+                MessageBox.Show("Error");
+                return;
             }
-            else if (cbbMembershipType.SelectedIndex == 1)
-            {
-                dblMembershipPrice = 100.00;
-            }
-            else if (cbbMembershipType.SelectedIndex == 2)
-            {
-                dblMembershipPrice = 14.99;
-            }
-            else if (cbbMembershipType.SelectedIndex == 3)
-            {
-                dblMembershipPrice = 150.00;
-            }
-            else if (cbbMembershipType.SelectedIndex == 4)
-            {
-                dblMembershipPrice = 19.99;
-            }
-            else
-            {
-                dblMembershipPrice = 200.00;
-            }
-
-            lblCalcCostPerMonth.Content = dblMembershipPrice.ToString("c2");
-
-            //Show the start date user selected
-            lblShowStartDateAnswer.Content = dpiStartDate.SelectedDate;
-
 
             //Months to use
             if (cbbMembershipType.SelectedIndex == 0 || cbbMembershipType.SelectedIndex == 2 || cbbMembershipType.SelectedIndex == 4)
@@ -155,16 +155,27 @@ namespace FitnessClub
             }
             else dblNumberOfMonths = 12;
 
+
+            
+
+            //Show the start date user selected
+            lblShowStartDateAnswer.Content = dpiStartDate.SelectedDate;
+
+
+           
+
             //Show the end date
             lblShowEndDateAnswer.Content = dtiStartDate.AddMonths(Convert.ToInt16(dblNumberOfMonths));
 
             //Calculating Subtotal
 
-            lblCalcSubtotal.Content = (dblMembershipPrice * dblNumberOfMonths).ToString("c2");
+            lblCalcSubtotal.Content = (dblMembershipCostPerMonth * dblNumberOfMonths).ToString("c2");
+           
             //Calculate Additional Cost
             if (cboPersonalTraining.IsChecked == true)
             {
                 dblAddPTP = 5.00;
+                lblPersonalTraining.Content = "Yes";
             }
             else dblAddPTP = 0;
 
@@ -177,7 +188,7 @@ namespace FitnessClub
             lblCalcAddCost.Content = ((dblAddPTP + dblAddLR) * dblNumberOfMonths).ToString("c2");
 
             //Calculate Total Cost
-            lblCalcTotalCost.Content = (((dblMembershipPrice * dblNumberOfMonths) + ((dblAddPTP + dblAddLR) * dblNumberOfMonths)).ToString("c2"));
+            lblCalcTotalCost.Content = (((dblMembershipCostPerMonth * dblNumberOfMonths) + ((dblAddPTP + dblAddLR) * dblNumberOfMonths)).ToString("c2"));
 
             //Validation input areas after quote preview
             string strInsideQuoteBox;
@@ -256,59 +267,69 @@ namespace FitnessClub
 
 */
         }
+
+        private void cboPersonalTraining_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cboPersonalTraining_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+        }
         /*//Validation for inputs
-        //Validation for first name
-        if(txtFirstName.Text == "")
-        {
-            MessageBox.Show("Please enter a first name!");
-            return;
-        }
+//Validation for first name
+if(txtFirstName.Text == "")
+{
+MessageBox.Show("Please enter a first name!");
+return;
+}
 
-        //validation for last name
-        if(txtLastName.Text == "")
-        {
-            MessageBox.Show("Please enter a last name!");
-            return;
-        }
+//validation for last name
+if(txtLastName.Text == "")
+{
+MessageBox.Show("Please enter a last name!");
+return;
+}
 
-        //validation for credit card type
-        if(cbbCreditCardType.SelectedIndex == -1)
-        {
-            MessageBox.Show("Please select a credit card type!");
-            return;
-        }
-        //validation for credit card number
-        if(txtCreditCardNumber.Text == "")
-        {
-            MessageBox.Show("Please enter a credit card number!");
-            return;
-        }
-        //validation for phone number
-        if(txtPhone.Text.Length != 10)
-        {
-            MessageBox.Show("Please enter a valid 10-digit phone number!");
-            return;
-        }
+//validation for credit card type
+if(cbbCreditCardType.SelectedIndex == -1)
+{
+MessageBox.Show("Please select a credit card type!");
+return;
+}
+//validation for credit card number
+if(txtCreditCardNumber.Text == "")
+{
+MessageBox.Show("Please enter a credit card number!");
+return;
+}
+//validation for phone number
+if(txtPhone.Text.Length != 10)
+{
+MessageBox.Show("Please enter a valid 10-digit phone number!");
+return;
+}
 
-        int intPhoneNumber;
-        if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
-        {
-            MessageBox.Show("Phone number should only contain numbers!");
-            return;
-        }
-        //validation for email
-        if(txtEmail.Text == "")
-        {
-            MessageBox.Show("Please enter an email address!");
-            return;
-        }
-        //validation for gender
-        if (cbbGender.SelectedIndex == -1)
-        {
-            MessageBox.Show("Please select an option for gender!");
-            return;
-        }
-        */
+int intPhoneNumber;
+if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
+{
+MessageBox.Show("Phone number should only contain numbers!");
+return;
+}
+//validation for email
+if(txtEmail.Text == "")
+{
+MessageBox.Show("Please enter an email address!");
+return;
+}
+//validation for gender
+if (cbbGender.SelectedIndex == -1)
+{
+MessageBox.Show("Please select an option for gender!");
+return;
+}
+*/
 
 
 
