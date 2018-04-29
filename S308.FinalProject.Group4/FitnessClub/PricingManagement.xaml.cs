@@ -76,6 +76,41 @@ namespace FitnessClub
             {
                 MessageBox.Show("Please enter a valid value as price");
             }
+
+
+            string SelectedItem;
+            double ChangedPrice;
+            SelectedItem = cbxMembershipType.SelectedValue.ToString().Substring(cbxMembershipType.SelectedValue.ToString().IndexOf(":") + 1).Trim();
+            ChangedPrice = Convert.ToDouble(txtNewPriceValue.Text);
+            foreach (var s in pricingList)
+            {
+                if (s.MembershipType == SelectedItem)
+                {
+                    s.Price = ChangedPrice;
+                    
+                    if(rdbYesAvailability.IsChecked == true)
+                    {
+                        s.Availability = "Yes";
+                    }
+
+                    else if(rdbNoAvailability.IsChecked == false)
+                    {
+                        s.Availability = "No";
+                    }
+                }
+            }
+
+            try
+            { string jsonData = JsonConvert.SerializeObject(pricingList);
+              System.IO.File.WriteAllText(@"..\..\..\MembershipPricing.json", jsonData);
+              MessageBox.Show("Changes saved");
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show("Changes Could Not be Saved");
+            }
+
         }
 
         private void btnHomeFromPM_Click(object sender, RoutedEventArgs e)
@@ -96,6 +131,11 @@ namespace FitnessClub
                     lblOldAvailabilityCheck.Content = s.Availability;
                 }
             }
+        }
+
+        private void txtNewPriceValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
