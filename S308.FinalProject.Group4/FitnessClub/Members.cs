@@ -36,7 +36,7 @@ namespace FitnessClub
         public double Weight { get; set; }
         public string PersonalGoals { get; set; }
         public string MembershipTypes { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public double MonthlyCost { get; set; }
         public double Subtotal { get; set; }
@@ -44,7 +44,7 @@ namespace FitnessClub
         public CheckBox PersonalTraining { get; set; }
         public CheckBox LockerRental { get; set; }
 
-        public Members(string membershipType, DateTime startDate, double costperMonth, double subTotal, CheckBox personalTrain, CheckBox addLocker, double total, string firstName, string lastName, int phone, string email, string gender, int age, double weight, string goal)
+        public Members(string membershipType, DateTime? startDate, double costperMonth, double subTotal, CheckBox personalTrain, CheckBox addLocker, double total, string firstName, string lastName, int phone, string email, string gender, int age, double weight, string goal)
         {
             MembershipTypes = membershipType;
             StartDate = startDate;

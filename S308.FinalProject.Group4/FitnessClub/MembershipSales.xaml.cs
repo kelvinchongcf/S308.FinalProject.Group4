@@ -44,6 +44,9 @@ namespace FitnessClub
             txtWeight.IsEnabled = false;
             cbbPersonalGoal.IsEnabled = false;
 
+            //define variables
+            
+
         }
 
         //Load membership type from json file to combobox
@@ -226,8 +229,8 @@ namespace FitnessClub
                 MessageBox.Show("Data import failed: " + ex.Message);
             }
             //Create a new class for new member ( NOT FINISHED ) Add more into the variables I don't have access to. (Willy)
-            Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(), lblShowStartDateAnswer.Content, lblCalcCostPerMonth.Content,
-                lblCalcSubtotal.Content,, lblCalcTotalCost.Content, txtFirstName.Text, txtLastName.Text,
+            Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(), dpiStartDate.SelectedDate, Convert.ToDouble(lblCalcCostPerMonth.Content),
+                Convert.ToDouble(lblCalcSubtotal.Content),cboPersonalTraining,cboLocker, Convert.ToDouble(lblCalcTotalCost.Content), txtFirstName.Text, txtLastName.Text,
                 Convert.ToInt32(txtPhone.Text), txtEmail.Text, cbbGender.SelectedIndex.ToString(),
                 Convert.ToInt32(txtAge.Text), Convert.ToDouble(txtWeight.Text), cbbPersonalGoal.SelectedIndex.ToString());
 
