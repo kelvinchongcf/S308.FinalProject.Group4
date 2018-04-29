@@ -37,6 +37,7 @@ namespace FitnessClub
             cbbMembershipType.SelectedIndex = -1;
             cboPersonalTraining.IsChecked = false;
             cboLocker.IsChecked = false;
+            ImportMemberData();
 
             
 
@@ -170,20 +171,29 @@ namespace FitnessClub
             //Calculating Subtotal
 
             lblCalcSubtotal.Content = (dblMembershipCostPerMonth * dblNumberOfMonths).ToString("c2");
-           
+
             //Calculate Additional Cost
             if (cboPersonalTraining.IsChecked == true)
             {
                 dblAddPTP = 5.00;
                 lblPersonalTraining.Content = "Yes";
             }
-            else dblAddPTP = 0;
+            else
+            {
+                dblAddPTP = 0;
+                lblPersonalTraining.Content = "No";
+            }
 
             if (cboLocker.IsChecked == true)
             {
                 dblAddLR = 1.00;
+                lblLockerRental.Content = "Yes";
             }
-            else dblAddLR = 0;
+            else
+            {
+                dblAddLR = 0;
+                lblLockerRental.Content = "No";
+            }
 
             lblCalcAddCost.Content = ((dblAddPTP + dblAddLR) * dblNumberOfMonths).ToString("c2");
 
@@ -209,19 +219,108 @@ namespace FitnessClub
             }
             else
                 txtFirstName.IsEnabled = true;
-            txtLastName.IsEnabled = true;
-            cbbCreditCardType.IsEnabled = true;
-            txtCreditCardNumber.IsEnabled = true;
-            txtPhone.IsEnabled = true;
-            txtEmail.IsEnabled = true;
-            cbbGender.IsEnabled = true;
-            txtAge.IsEnabled = true;
-            txtWeight.IsEnabled = true;
-            cbbPersonalGoal.IsEnabled = true;
+                txtLastName.IsEnabled = true;
+                cbbCreditCardType.IsEnabled = true;
+                txtCreditCardNumber.IsEnabled = true;
+                txtPhone.IsEnabled = true;
+                txtEmail.IsEnabled = true;
+                cbbGender.IsEnabled = true;
+                txtAge.IsEnabled = true;
+                txtWeight.IsEnabled = true;
+                cbbPersonalGoal.IsEnabled = true;
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        { //Define variables
+            bool bolStatus;
+
+            //Call AddMember method and passing all needed inputs
+            //The method will return a bool type as the status of Add operation
+            bolStatus = bolStatus = AddMember(Convert.ToString(lblShowMembership.Content), dpiStartDate.Text, Convert.ToString(lblShowEndDateAnswer.Content), Convert.ToString(lblCalcCostPerMonth.Content), Convert.ToString(lblCalcSubtotal.Content), Convert.ToString(lblPersonalTraining.Content), Convert.ToString(lblLockerRental.Content), Convert.ToString(lblCalcTotalCost.Content), txtFirstName.Text, txtLastName.Text, txtPhone.Text, txtEmail.Text, cbbGender.SelectedItem , txtAge.Text, txtWeight.Text, cbbPersonalGoal.SelectedItem);
+
+            //If the member is added successfully, display message to user
+            if (bolStatus)
+            {
+                MessageBox.Show("You now have " + MemberList.Count + " members in the system");
+            }
+
+        }
+
+        private bool AddMember(string mType, string sDate, string eDate, string CostpMonth, string subtotal, string personalt, string locker, string total, string firstName, string lastName, string phone, string email, object gender, string age, string weight, object goal)
         {
+            //Define variables
+            Member newMember;
+
+            //Validation for inputs
+            //Validation for first name
+            if(txtFirstName.Text == "")
+            {
+            MessageBox.Show("Please enter a first name!");
+            return false;
+            }
+
+            //validation for last name
+            if(txtLastName.Text == "")
+            {
+            MessageBox.Show("Please enter a last name!");
+            return false;
+            }
+
+            //validation for credit card type
+            if(cbbCreditCardType.SelectedIndex == -1)
+            {
+            MessageBox.Show("Please select a credit card type!");
+            return false;
+            }
+            //validation for credit card number
+            if(txtCreditCardNumber.Text == "")
+            {
+            MessageBox.Show("Please enter a credit card number!");
+            return false;
+            }
+            //validation for phone number
+            if(txtPhone.Text.Length != 10)
+            {
+            MessageBox.Show("Please enter a valid 10-digit phone number!");
+            return false;
+            }
+
+            int intPhoneNumber;
+            if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
+            {
+            MessageBox.Show("Phone number should only contain numbers!");
+            return false;
+            }
+            //validation for email
+            if(txtEmail.Text == "")
+            {
+            MessageBox.Show("Please enter an email address!");
+            return false;
+            }
+            //validation for gender
+            if (cbbGender.SelectedIndex == -1)
+            {
+            MessageBox.Show("Please select an option for gender!");
+            return false;
+            }
+
+            newMember = new Member(mType,sDate, eDate, CostpMonth, subtotal, personalt, locker, total, firstName, lastName, phone, email, gender.ToString(), age, weight, goal.ToString());
+
+            string strFilePath = @"..\..\..\data.json";
+            MemberList.Add(newMember);
+
+            try
+            {
+                string jsonData = JsonConvert.SerializeObject(MemberList);
+                System.IO.File.WriteAllText(strFilePath, jsonData);
+                MessageBox.Show("Member successfully added!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in adding member");
+            }
+            return true;
+      }
           /* 
             //Do validations on input here! (NOT YET DONE)
             //Load text file into list
@@ -268,71 +367,11 @@ namespace FitnessClub
 */
         }
 
-        private void cboPersonalTraining_Checked(object sender, RoutedEventArgs e)
-        {
 
-        }
 
-        private void cboPersonalTraining_Unchecked(object sender, RoutedEventArgs e)
-        {
-
-        }
-        /*//Validation for inputs
-//Validation for first name
-if(txtFirstName.Text == "")
-{
-MessageBox.Show("Please enter a first name!");
-return;
-}
-
-//validation for last name
-if(txtLastName.Text == "")
-{
-MessageBox.Show("Please enter a last name!");
-return;
-}
-
-//validation for credit card type
-if(cbbCreditCardType.SelectedIndex == -1)
-{
-MessageBox.Show("Please select a credit card type!");
-return;
-}
-//validation for credit card number
-if(txtCreditCardNumber.Text == "")
-{
-MessageBox.Show("Please enter a credit card number!");
-return;
-}
-//validation for phone number
-if(txtPhone.Text.Length != 10)
-{
-MessageBox.Show("Please enter a valid 10-digit phone number!");
-return;
-}
-
-int intPhoneNumber;
-if(!int.TryParse(txtPhone.Text,out intPhoneNumber))
-{
-MessageBox.Show("Phone number should only contain numbers!");
-return;
-}
-//validation for email
-if(txtEmail.Text == "")
-{
-MessageBox.Show("Please enter an email address!");
-return;
-}
-//validation for gender
-if (cbbGender.SelectedIndex == -1)
-{
-MessageBox.Show("Please select an option for gender!");
-return;
-}
-*/
 
 
 
     }
-}
+
 

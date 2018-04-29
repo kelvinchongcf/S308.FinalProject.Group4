@@ -21,7 +21,7 @@
         <DatePicker x:Name="dpiStartDate" HorizontalAlignment="Left" Margin="130,122,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Courier New"/>
         <Label x:Name="lblStartDate" Content="Start Date" HorizontalAlignment="Left" Margin="19,120,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
         <Label x:Name="lblMembershipCostPerMonth" Content="Monthly Membership Cost:" HorizontalAlignment="Left" Margin="20,327,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
-        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="cboPersonalTraining" Content="Personal Training Plan" FontSize="16" Width="244" Margin="33,156,0,0" Height="20" Foreground="#FFF7F0F0" FontFamily="Courier New" ClickMode="Release" Background="Transparent" Checked="cboPersonalTraining_Checked"/>
+        <CheckBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="cboPersonalTraining" Content="Personal Training Plan" FontSize="16" Width="244" Margin="33,156,0,0" Height="20" Foreground="#FFF7F0F0" FontFamily="Courier New" ClickMode="Release" Background="Transparent"/>
         <CheckBox x:Name="cboLocker" Content="Locker Rental" HorizontalAlignment="Left" Margin="33,178,0,0" VerticalAlignment="Top" FontSize="16" Padding="4,-1,0,0" Height="21" Width="244" Foreground="White" FontFamily="Courier New" ClickMode="Press" Background="{x:Null}"/>
         <Label x:Name="lblAdditionalCosts" Content="Additional Costs" HorizontalAlignment="Left" Margin="19,440,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblTotalCost" Content="Total Cost" HorizontalAlignment="Left" Margin="19,473,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
@@ -44,26 +44,26 @@
         <Label x:Name="lblEmail" Content="Email: " HorizontalAlignment="Left" Margin="446,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
         <Label x:Name="lblPersonalGoal" Content="Personal Fitness Goal: " HorizontalAlignment="Left" Margin="446,329,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
         <Label x:Name="lblWeight" Content="Weight: " HorizontalAlignment="Left" Margin="446,303,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.009,0.167" FontSize="16" FontFamily="Courier New" Background="#00000000" Foreground="White"/>
-        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="703,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="703,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <TextBox x:Name="txtCreditCardNumber" HorizontalAlignment="Left" Height="23" Margin="703,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="703,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="703,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="23" Margin="703,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Height="23" Margin="703,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166"/>
-        <ComboBox x:Name="cbbGender" HorizontalAlignment="Left" Margin="703,247,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New">
+        <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Height="23" Margin="673,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Height="23" Margin="673,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"/>
+        <TextBox x:Name="txtCreditCardNumber" HorizontalAlignment="Left" Height="23" Margin="673,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"/>
+        <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Height="23" Margin="673,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="673,221,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="23" Margin="673,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"/>
+        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Height="23" Margin="673,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196"/>
+        <ComboBox x:Name="cbbGender" HorizontalAlignment="Left" Margin="673,247,0,0" VerticalAlignment="Top" Width="196" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New">
             <ComboBoxItem Content="Male"/>
             <ComboBoxItem Content="Female"/>
             <ComboBoxItem Content="Not Provided"/>
         </ComboBox>
-        <ComboBox x:Name="cbbPersonalGoal" HorizontalAlignment="Left" Margin="703,329,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New">
+        <ComboBox x:Name="cbbPersonalGoal" HorizontalAlignment="Left" Margin="673,329,0,0" VerticalAlignment="Top" Width="196" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New">
             <ComboBoxItem Content="Athletic Performance"/>
             <ComboBoxItem Content="Overall Health"/>
             <ComboBoxItem Content="Strength Training"/>
             <ComboBoxItem Content="Weight Loss"/>
             <ComboBoxItem Content="Weight Management"/>
         </ComboBox>
-        <ComboBox x:Name="cbbCreditCardType" HorizontalAlignment="Left" Margin="703,139,0,0" VerticalAlignment="Top" Width="166" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New" >
+        <ComboBox x:Name="cbbCreditCardType" HorizontalAlignment="Left" Margin="673,139,0,0" VerticalAlignment="Top" Width="196" FontSize="16" RenderTransformOrigin="0.486,-0.13" FontFamily="Courier New" >
             <ComboBoxItem Content="Visa" Background="#00000000"/>
             <Button Content="Mastercard" Background="#00000000" BorderBrush="Transparent"/>
             <Button Content="Discover" Background="Transparent" BorderBrush="Transparent"/>
