@@ -76,6 +76,9 @@ namespace FitnessClub
             {
                 MessageBox.Show("Please enter a valid value as price");
             }
+
+
+
         }
 
         private void btnHomeFromPM_Click(object sender, RoutedEventArgs e)
@@ -96,6 +99,11 @@ namespace FitnessClub
                     lblOldAvailabilityCheck.Content = s.Availability;
                 }
             }
+        }
+
+        private void txtNewPriceValue_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

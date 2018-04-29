@@ -144,7 +144,7 @@ namespace FitnessClub
             //Show the start date user selected
             lblShowStartDateAnswer.Content = dpiStartDate.SelectedDate;
 
-            
+
             //Months to use
             if (cbbMembershipType.SelectedIndex == 0 || cbbMembershipType.SelectedIndex == 2 || cbbMembershipType.SelectedIndex == 4)
             {
@@ -156,7 +156,7 @@ namespace FitnessClub
             lblShowEndDateAnswer.Content = dtiStartDate.AddMonths(Convert.ToInt16(dblNumberOfMonths));
 
             //Calculating Subtotal
-            
+
             lblCalcSubtotal.Content = (dblMembershipPrice * dblNumberOfMonths).ToString("c2");
             //Calculate Additional Cost
             if (cboPersonalTraining.IsChecked == true)
@@ -195,15 +195,15 @@ namespace FitnessClub
             }
             else
                 txtFirstName.IsEnabled = true;
-                txtLastName.IsEnabled = true;
-                cbbCreditCardType.IsEnabled = true;
-                txtCreditCardNumber.IsEnabled = true;
-                txtPhone.IsEnabled = true;
-                txtEmail.IsEnabled = true;
-                cbbGender.IsEnabled = true;
-                txtAge.IsEnabled = true;
-                txtWeight.IsEnabled = true;
-                cbbPersonalGoal.IsEnabled = true;
+            txtLastName.IsEnabled = true;
+            cbbCreditCardType.IsEnabled = true;
+            txtCreditCardNumber.IsEnabled = true;
+            txtPhone.IsEnabled = true;
+            txtEmail.IsEnabled = true;
+            cbbGender.IsEnabled = true;
+            txtAge.IsEnabled = true;
+            txtWeight.IsEnabled = true;
+            cbbPersonalGoal.IsEnabled = true;
         }
 
         private void btnConfirm_Click(object sender, RoutedEventArgs e)
@@ -227,10 +227,10 @@ namespace FitnessClub
             }
             //Create a new class for new member ( NOT FINISHED ) Add more into the variables I don't have access to. (Willy)
             Members NewMem = new Members(cbbMembershipType.SelectedItem.ToString(), lblShowStartDateAnswer.Content, lblCalcCostPerMonth.Content,
-                lblCalcSubtotal.Content,,, lblCalcTotalCost.Content, txtFirstName.Text, txtLastName.Text,
-                Convert.ToInt32(txtPhone.Text),txtEmail.Text,cbbGender.SelectedIndex.ToString(),
-                Convert.ToInt32(txtAge.Text),Convert.ToDouble(txtWeight.Text),cbbPersonalGoal.SelectedIndex.ToString());
-            
+                lblCalcSubtotal.Content,, lblCalcTotalCost.Content, txtFirstName.Text, txtLastName.Text,
+                Convert.ToInt32(txtPhone.Text), txtEmail.Text, cbbGender.SelectedIndex.ToString(),
+                Convert.ToInt32(txtAge.Text), Convert.ToDouble(txtWeight.Text), cbbPersonalGoal.SelectedIndex.ToString());
+
             // add it to list of members
             memList.Add(NewMem);
             //Overwrite json file with new list
@@ -305,9 +305,9 @@ namespace FitnessClub
             return;
         }
         */
-        
+
 
 
     }
-    } 
-    
+}
+
