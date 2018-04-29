@@ -184,17 +184,19 @@ namespace FitnessClub
             else dblNumberOfMonths = 12;
 
 
-            
+
 
             //Show the start date user selected
-            lblShowStartDateAnswer.Content = dpiStartDate.SelectedDate;
+            
+            lblShowStartDateAnswer.Content = dtiStartDate.ToShortDateString();
 
 
-           
+
 
             //Show the end date
-            lblShowEndDateAnswer.Content = dtiStartDate.AddMonths(Convert.ToInt16(dblNumberOfMonths));
-
+            DateTime dtiEndDate;
+            dtiEndDate = dtiStartDate.AddMonths(Convert.ToInt16(dblNumberOfMonths));
+            lblShowEndDateAnswer.Content = dtiEndDate.ToShortDateString();
             //Calculating Subtotal
 
             lblCalcSubtotal.Content = (dblMembershipCostPerMonth * dblNumberOfMonths).ToString("c2");

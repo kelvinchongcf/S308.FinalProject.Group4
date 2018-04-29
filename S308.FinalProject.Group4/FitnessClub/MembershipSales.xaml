@@ -77,10 +77,10 @@
         <Label x:Name="lblShowEndDate" Content="End Date:" HorizontalAlignment="Left" Margin="18,381,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblShowEndDateAnswer" Content="" HorizontalAlignment="Left" Margin="265,381,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="121"/>
         <Label x:Name="lblShowStartDateAnswer" Content="" HorizontalAlignment="Left" Margin="265,355,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New" Width="121"/>
-        <Label x:Name="lblAvailability" Content="Availability:" HorizontalAlignment="Left" Margin="19,286,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
+        <Label x:Name="lblAvailability" Content="Availability:" HorizontalAlignment="Left" Margin="19,289,0,0" VerticalAlignment="Top" FontSize="16" Foreground="White" FontFamily="Courier New"/>
         <Label x:Name="lblShowAvailability" Content="" HorizontalAlignment="Left" Margin="266,291,0,0" VerticalAlignment="Top" FontSize="16" Width="78" Foreground="White" FontFamily="Courier New"/>
-        <Label x:Name="lblPersonalTraining" Content="??" HorizontalAlignment="Left" Margin="298,148,0,0" VerticalAlignment="Top" FontSize="16" Width="78" Foreground="White" FontFamily="Courier New"/>
-        <Label x:Name="lblLockerRental" Content="??" HorizontalAlignment="Left" Margin="298,170,0,0" VerticalAlignment="Top" FontSize="16" Width="78" Foreground="White" FontFamily="Courier New"/>
+        <Label x:Name="lblPersonalTraining" Content="" HorizontalAlignment="Left" Margin="298,148,0,0" VerticalAlignment="Top" FontSize="16" Width="78" Foreground="White" FontFamily="Courier New"/>
+        <Label x:Name="lblLockerRental" Content="" HorizontalAlignment="Left" Margin="298,170,0,0" VerticalAlignment="Top" FontSize="16" Width="78" Foreground="White" FontFamily="Courier New"/>
 
     </Grid>
 </Window>
